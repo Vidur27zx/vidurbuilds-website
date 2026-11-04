@@ -427,7 +427,7 @@ function IntroCard({ hovered, onOpen }: { hovered: boolean; onOpen: (r: DOMRect)
           </span>
 
           <span className="absolute inset-0 grid place-items-center" aria-hidden>
-            <PlayOrb hovered={hovered} />
+            <PlayOrb hovered={hovered} active={inView && !reduce} />
           </span>
 
           <span className="absolute inset-x-0 bottom-0 p-4 md:p-6">
@@ -442,10 +442,10 @@ function IntroCard({ hovered, onOpen }: { hovered: boolean; onOpen: (r: DOMRect)
   );
 }
 
-function PlayOrb({ hovered }: { hovered: boolean }) {
+function PlayOrb({ hovered, active }: { hovered: boolean; active: boolean }) {
   return (
     <span className="relative grid place-items-center">
-      {[0, 1].map((i) => (
+      {active && [0, 1].map((i) => (
         <motion.span
           key={i}
           className="absolute h-14 w-14 rounded-full border-[1.5px] border-white/70 md:h-16 md:w-16"

@@ -3,7 +3,6 @@ import { Bricolage_Grotesque, Caveat, DM_Sans } from "next/font/google";
 import { Backdrop } from "@/components/Backdrop";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
-import { GlassEffects } from "@/components/GlassEffects";
 import { Providers } from "@/components/Providers";
 import { SampleNotice } from "@/components/SampleNotice";
 import { profile } from "@/content";
@@ -34,7 +33,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full">
         <Providers>
-          <GlassEffects />
           <Backdrop />
 
           <div>

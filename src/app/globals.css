@@ -67,7 +67,7 @@ section[id] {
   scroll-margin-top: 96px;
 }
 
-/* Clear lens surfaces: no replacement fill, contrast filter, or text distortion. */
+/* Lightweight glass surfaces keep the blur bounded to each control. */
 .glass-filter-defs { position: absolute; pointer-events: none; }
 .glass-pill {
   position: relative;
@@ -84,17 +84,12 @@ section[id] {
   backdrop-filter: blur(5px) saturate(1.1);
 }
 .glass-nav {
-  /* Its own rounded layer contains refraction without filtering its labels. */
+  /* Use a small native blur instead of an SVG displacement filter. */
   -webkit-backdrop-filter: blur(7px) saturate(1.12);
   backdrop-filter: blur(7px) saturate(1.12);
 }
 .glass-nav a:focus-visible { border-radius: 9999px; }
 .glass-nav-scrolled { background: rgba(253, 247, 240, 0.96) !important; }
-@supports (backdrop-filter: url("#portfolio-glass")) {
-  .glass-nav {
-    backdrop-filter: url("#portfolio-glass") blur(4px) saturate(1.1);
-  }
-}
 .glass-active {
   background: rgba(253, 247, 240, 0.78);
   border: 1px solid rgba(147, 68, 26, 0.25);
