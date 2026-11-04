@@ -78,16 +78,9 @@ export function Header() {
         </div>
       </motion.header>
       <div className="pointer-events-none fixed inset-x-0 top-3.5 z-50 flex justify-center md:top-4">
-        <motion.nav
+        <nav
           aria-label="Main"
           className={`glass-nav glass-pill pointer-events-auto flex items-center gap-1 rounded-full p-1.5 ${scrolled ? "glass-nav-scrolled" : ""}`}
-          initial={{ opacity: 0, y: -16, scale: 0.96 }}
-          animate={{
-            opacity: 1,
-            y: 0,
-            scale: scrolled ? 0.97 : 1,
-          }}
-          transition={spring}
         >
           {NAV.map((item) => {
             const on = item.href === active;
@@ -95,23 +88,20 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
+                prefetch={true}
                 aria-current={on ? "page" : undefined}
-                className={`relative rounded-full px-3.5 py-2.5 text-[15px] font-semibold transition-colors sm:px-5 md:px-7 md:text-[16px] ${
+                className={`relative touch-manipulation rounded-full px-3.5 py-2.5 text-[15px] font-semibold transition-colors sm:px-5 md:px-7 md:text-[16px] ${
                   on ? "text-brand" : "text-ink hover:text-brand"
                 }`}
               >
                 {on && (
-                  <motion.span
-                    layoutId="nav-highlight"
-                    className="glass-active absolute inset-0 rounded-full"
-                    transition={spring}
-                  />
+                  <span className="glass-active pointer-events-none absolute inset-0 rounded-full" />
                 )}
                 <span className="relative">{item.label}</span>
               </Link>
             );
           })}
-        </motion.nav>
+        </nav>
       </div>
     </>
   );

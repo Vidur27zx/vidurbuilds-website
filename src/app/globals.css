@@ -31,7 +31,7 @@
 
 html {
   overflow-x: clip;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
   background: var(--color-paper);
 }
 

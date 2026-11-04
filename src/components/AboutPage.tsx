@@ -7,7 +7,7 @@ import { aboutPage, profile, working } from "@/content";
 import { easeRise, seen, spring, springBouncy, springDrop, springSnappy } from "@/lib/motion";
 import { Glyph } from "./Glyph";
 import { ArrowRight, ArrowUpRight } from "./icons";
-import { Eyebrow, Framed, Headline, IconTile, Rise, SkillPill, Sparks } from "./kit";
+import { Framed, Headline, SkillPill, Sparks } from "./kit";
 import { Tools } from "./Tools";
 import { Pill } from "./ui";
 
@@ -43,13 +43,13 @@ function Intro() {
         <motion.span
           aria-hidden
           className="absolute -inset-x-3 top-6 -bottom-5 rounded-[44px] bg-gradient-to-br from-[#f3cba7] to-[#e9b48b]"
-          initial={{ opacity: 0, rotate: 0 }}
+          initial={false}
           animate={{ opacity: 1, rotate: -11 }}
           transition={{ ...spring, delay: 0.10714 }}
         />
         <motion.div
           className="relative"
-          initial={{ opacity: 0, y: -50, rotate: 6, scale: 1.05 }}
+          initial={false}
           animate={{ opacity: 1, y: 0, rotate: -5, scale: 1 }}
           whileHover={{ rotate: -2, scale: 1.02 }}
           transition={{ ...springDrop, delay: 0.05358 }}
@@ -66,18 +66,15 @@ function Intro() {
         </motion.div>
       </div>
       <div>
-        <Eyebrow>{aboutPage.eyebrow}</Eyebrow>
+        <p className="eyebrow">{aboutPage.eyebrow}</p>
         <div className="relative mt-3 md:mt-4">
-          <Headline
-            as="h1"
-            lines={aboutPage.heading}
-            className="text-[clamp(30px,3vw,42px)] tracking-[-0.04em] text-[#3d1a09]"
-          >
-          </Headline>
+          <h1 className="display text-[clamp(30px,3vw,42px)] tracking-[-0.04em] text-[#3d1a09]">
+            {aboutPage.heading.map((line, i) => <span key={i} className="block">{line}</span>)}
+          </h1>
         </div>
-        <Rise as="p" delay={0.1} className="mt-5 max-w-[700px] text-[16px] leading-[1.55] text-ink-soft md:text-[17px]">
+        <p className="mt-5 max-w-[700px] text-[16px] leading-[1.55] text-ink-soft md:text-[17px]">
           {aboutPage.sub}
-        </Rise>
+        </p>
       </div>
     </section>
   );
@@ -106,7 +103,7 @@ function Block({
   return (
     <motion.section
       className={`glass-rim relative overflow-hidden rounded-[30px] p-5 shadow-[0_26px_50px_-36px_rgba(74,36,18,0.5)] ring-1 md:p-6 ${className}`}
-      initial={{ opacity: 0, y: 30 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={seen}
       transition={{ duration: 0.24999, ease: easeRise, delay }}
@@ -114,7 +111,7 @@ function Block({
       <div className="flex items-center gap-4">
         <motion.span
           className={`grid h-12 w-12 shrink-0 place-items-center rounded-full ${tone}`}
-          initial={{ scale: 0.4, rotate: -30 }}
+          initial={false}
           whileInView={{ scale: 1, rotate: 0 }}
           viewport={seen}
           transition={{ ...springBouncy, delay: delay + 0.2 }}
@@ -137,7 +134,7 @@ function WhereWorked() {
         <motion.span
           aria-hidden
           className="absolute top-3 bottom-3 left-[11px] w-[2px] origin-top rounded-full bg-peach lg:hidden"
-          initial={{ scaleY: 0 }}
+          initial={false}
           whileInView={{ scaleY: 1 }}
           viewport={seen}
           transition={{ duration: 0.28573, delay: 0.12501, ease: "easeInOut" }}
@@ -146,14 +143,14 @@ function WhereWorked() {
           <motion.li
             key={w.name}
             className="relative flex min-w-0 gap-3"
-            initial={{ opacity: 0, x: -10 }}
+            initial={false}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={seen}
             transition={{ duration: 0.17858, delay: 0.14285 + i * 0.11, ease: easeRise }}
           >
             <motion.span
               className="relative mt-1 grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full"
-              initial={{ scale: 0 }}
+              initial={false}
               whileInView={{ scale: 1 }}
               viewport={seen}
               transition={{ ...springBouncy, delay: 0.16072 + i * 0.11 }}
@@ -200,7 +197,7 @@ function WhatDrives() {
 
 function Summit() {
   const draw = (delay: number, duration = 1) => ({
-    initial: { pathLength: 0 },
+    initial: false as const,
     whileInView: { pathLength: 1 },
     viewport: seen,
     transition: { duration, delay, ease: "easeInOut" as const },
@@ -225,7 +222,7 @@ function Summit() {
       />
       <motion.path d="M84 34 V8" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" {...draw(1.5, 0.4)} />
       <motion.g
-        initial={{ scale: 0, opacity: 0 }}
+        initial={false}
         whileInView={{ scale: 1, opacity: 1 }}
         viewport={seen}
         transition={{ ...springSnappy, delay: 0.66072 }}
@@ -247,7 +244,7 @@ function Summit() {
           stroke="#c99a3a"
           strokeWidth="2.2"
           strokeLinecap="round"
-          initial={{ pathLength: 0, opacity: 0 }}
+          initial={false}
           whileInView={{ pathLength: 1, opacity: [0, 1, 1] }}
           viewport={seen}
           transition={{ duration: 0.10714, delay: 1.5 + i * 0.05 }}
@@ -266,7 +263,7 @@ function HowIWork() {
             <motion.div
               key={step.title}
               className="process-card glass-rim group rounded-[22px] bg-gradient-to-br from-[#fdeee2] to-[#fae4d3] p-5 ring-1 ring-white/80 md:p-6"
-              initial={{ opacity: 0, y: 20, scale: 0.96 }}
+              initial={false}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               viewport={seen}
               whileHover={{ y: -4 }}
@@ -294,7 +291,7 @@ function StepArrow({ delay }: { delay: number }) {
     <span className="grid self-stretch place-items-center py-1 text-brand md:py-0" aria-hidden>
       <motion.span
         className="inline-flex rotate-90 md:rotate-0"
-        initial={{ opacity: 0, x: -10 }}
+        initial={false}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={seen}
         transition={{ duration: 0.16072, delay, ease: easeRise }}
@@ -320,7 +317,7 @@ function GoodToKnow() {
           <motion.li
             key={item}
             className="flex items-start gap-3.5 text-[15.5px] leading-snug text-ink md:text-[17px]"
-            initial={{ opacity: 0, x: -10 }}
+            initial={false}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={seen}
             transition={{ duration: 0.17858, delay: 0.08928 + i * 0.05, ease: easeRise }}
@@ -333,7 +330,7 @@ function GoodToKnow() {
                   strokeWidth="2.4"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  initial={{ pathLength: 0 }}
+                  initial={false}
                   whileInView={{ pathLength: 1 }}
                   viewport={seen}
                   transition={{ duration: 0.12501, delay: 0.16072 + i * 0.05 }}
@@ -374,7 +371,7 @@ function BuildTogether() {
   return (
     <motion.section
       className="glass-rim relative mt-4 grid items-center gap-6 overflow-hidden rounded-[34px] bg-gradient-to-r from-[#5e3420] via-[#73452b] to-[#6a3c24] px-6 py-7 text-[#fdf3ea] shadow-[0_36px_60px_-34px_rgba(60,25,10,0.9)] md:grid-cols-[auto_1px_minmax(0,1fr)_auto] md:gap-9 md:px-8 md:py-8"
-      initial={{ opacity: 0, y: 30, scale: 0.98 }}
+      initial={false}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={seen}
       transition={{ duration: 0.28573, ease: easeRise }}
