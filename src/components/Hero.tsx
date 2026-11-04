@@ -26,7 +26,7 @@ import {
   type ReactNode,
 } from "react";
 import { chips, experienceLogos, hero, heroCards, intro, profile, type Chip, type HeroCard } from "@/content";
-import { useOverlay } from "@/lib/hooks";
+import { useIsDesktop, useOverlay } from "@/lib/hooks";
 import { easeOut, spring, springSnappy } from "@/lib/motion";
 import { Glyph } from "./Glyph";
 import { Close, Pause, Play } from "./icons";
@@ -113,19 +113,14 @@ const WIDTH = [
 ];
 
 function CardDeck({ onOpenIntro }: { onOpenIntro: (r: DOMRect) => void }) {
+  const desktop = useIsDesktop();
   const track = useRef<HTMLDivElement>(null);
   const viewport = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const [max, setMax] = useState(0);
   const [hovered, setHovered] = useState<number | null>(null);
-  const [settled, setSettled] = useState(false);
   const moved = useRef(false);
   const reduced = useReducedMotion();
-
-  useEffect(() => {
-    const id = setTimeout(() => setSettled(true), 325);
-    return () => clearTimeout(id);
-  }, []);
 
   useLayoutEffect(() => {
     const measure = () => {
@@ -156,6 +151,10 @@ function CardDeck({ onOpenIntro }: { onOpenIntro: (r: DOMRect) => void }) {
   const onFocus = (e: FocusEvent<HTMLDivElement>) => {
     const card = (e.target as HTMLElement).closest("[data-card]");
     if (!card) return;
+    if (!desktop) {
+      card.scrollIntoView({ block: "nearest", inline: "nearest" });
+      return;
+    }
     const index = Number(card.getAttribute("data-card"));
     if (Number.isFinite(index)) setHovered(index);
     const r = card.getBoundingClientRect();
@@ -169,12 +168,12 @@ function CardDeck({ onOpenIntro }: { onOpenIntro: (r: DOMRect) => void }) {
 
   return (
     <div className="relative mt-6 md:mt-7">
-      <div ref={viewport} className="hero-deck-viewport overflow-x-clip">
+      <div ref={viewport} className="hero-deck-viewport overflow-x-auto overscroll-x-contain md:overflow-x-clip">
         <motion.div
           ref={track}
-          className="hero-deck-track flex w-max cursor-grab touch-pan-y lg:mx-auto items-start pt-4 pb-8 active:cursor-grabbing"
-          style={{ x }}
-          drag="x"
+          className="hero-deck-track flex w-max md:cursor-grab md:touch-pan-y lg:mx-auto items-start pt-4 pb-8 md:active:cursor-grabbing"
+          style={{ x: desktop ? x : 0, willChange: desktop ? "transform" : undefined }}
+          drag={desktop ? "x" : false}
           dragConstraints={{ left: -max, right: 0 }}
           dragElastic={0.14}
           dragTransition={{ power: 0.28, timeConstant: 260, bounceStiffness: 127.4, bounceDamping: 21 }}
@@ -203,7 +202,7 @@ function CardDeck({ onOpenIntro }: { onOpenIntro: (r: DOMRect) => void }) {
                 className={`relative shrink-0 ${WIDTH[i]} ${i ? "-ml-2 sm:-ml-2 lg:ml-1" : ""}`}
                 style={{ zIndex: on ? 20 : [6, 5, 4, 5][i] }}
 
-                initial={{ opacity: 0, x: -90 * i - 30, y: 40, rotate: 0, scale: 0.9 }}
+                initial={{ opacity: 0, y: 8, rotate: TILT[i].rotate }}
                 animate={{
                   opacity: hovered !== null && !on ? 0.72 : 1,
                   x: 0,
@@ -212,8 +211,8 @@ function CardDeck({ onOpenIntro }: { onOpenIntro: (r: DOMRect) => void }) {
                   scale: on && !reduced ? 1.015 : 1,
                 }}
                 transition={{
-                  default: settled ? spring : { type: "spring", stiffness: 333.2, damping: 28, delay: 0.19642 + i * 0.0225 },
-                  opacity: { duration: 0.28573, delay: settled ? 0 : 0.08 + i * 0.025 },
+                  default: springSnappy,
+                  opacity: { duration: 0.16 },
                 }}
                 onHoverStart={() => setHovered(i)}
                 onHoverEnd={() => setHovered((h) => (h === i ? null : h))}

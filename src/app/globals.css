@@ -185,6 +185,8 @@ section[id] {
   }
 }
 @media (max-width: 767px) {
+  .hero-deck-viewport { scrollbar-width: none; }
+  .hero-deck-viewport::-webkit-scrollbar { display: none; }
   .experience-rail {
     display: grid;
     grid-auto-flow: column;
