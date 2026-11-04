@@ -29,6 +29,7 @@ export function Header() {
   return (
     <>
       <motion.header
+        data-site-header
         className="relative z-40 mx-auto flex h-[76px] max-w-[1360px] items-center justify-between px-4 md:h-[84px] md:px-6 lg:px-[calc(2.5vw+28px)]"
         initial={{ opacity: 0, y: -14 }}
         animate={{ opacity: 1, y: 0 }}
@@ -47,12 +48,12 @@ export function Header() {
         </Link>
         <div className="flex items-center gap-2.5">
           <motion.a
-            href="/#contact"
+            href={`mailto:${profile.email}`}
             className="glass-pill group inline-flex h-11 items-center gap-2 rounded-xl px-3 text-[15px] font-semibold text-espresso ring-[1.5px] ring-espresso/85 transition-colors hover:bg-espresso hover:text-[#fdf3ea] sm:px-4 md:h-12"
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.96 }}
             transition={spring}
-            aria-label="Say hello"
+            aria-label={`Email ${profile.email}`}
           >
             <Mail width={18} height={18} />
             <span className="hidden sm:inline">Say hello</span>
@@ -68,7 +69,7 @@ export function Header() {
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"
-            className="grid h-11 w-11 place-items-center rounded-xl bg-espresso text-[#fdf3ea] shadow-[0_8px_18px_-8px_rgba(58,27,12,0.7)] max-sm:hidden md:h-12 md:w-12"
+            className="grid h-11 w-11 place-items-center rounded-xl bg-espresso text-[#fdf3ea] shadow-[0_8px_18px_-8px_rgba(58,27,12,0.7)] md:h-12 md:w-12"
             whileHover={{ y: -2, rotate: -4 }}
             whileTap={{ scale: 0.94 }}
             transition={spring}

@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import { CalendarDays, FileText, Mail as MailIcon } from "lucide-react";
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
-import { useState } from "react";
+import { motion, useReducedMotion } from "motion/react";
+
 import { letter, profile, socials, working } from "@/content";
 import { easeRise, seen, spring, springBouncy, springDrop } from "@/lib/motion";
-import { ArrowUpRight, Check, LinkedInSquare } from "./icons";
+import { ArrowUpRight, LinkedInSquare } from "./icons";
 import { Eyebrow, Framed, Headline, IconTile, Rise, Sparks, useTilt } from "./kit";
 import { useMagnet } from "./ui";
 
@@ -308,17 +308,7 @@ function Paperclip() {
 }
 
 function ReachOut() {
-  const [copied, setCopied] = useState(false);
   const magnet = useMagnet(0.1);
-  const copy = async () => {
-    try {
-      await navigator.clipboard.writeText(profile.email);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 1800);
-    } catch {
-      window.location.href = `mailto:${profile.email}`;
-    }
-  };
   const tile =
     "glass-rim group flex h-[88px] flex-col items-center justify-center gap-2.5 rounded-[20px] bg-gradient-to-b from-[#f8e7da] to-[#f3dccb] px-3 text-[15px] font-semibold text-[#4d1f0a] shadow-[0_18px_30px_-22px_rgba(74,36,18,0.6)] ring-1 ring-white/70 md:h-[96px] md:text-[17px]";
   const icon =
@@ -381,10 +371,9 @@ function ReachOut() {
             {l.label}
           </motion.a>
         ))}
-        <motion.button
-          type="button"
-          onClick={copy}
-          aria-label={`Copy ${profile.email}`}
+        <motion.a
+          href={`mailto:${profile.email}`}
+          aria-label={`Email ${profile.email}`}
           className={`${tile} col-span-2 sm:col-span-1`}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -393,22 +382,9 @@ function ReachOut() {
           whileTap={{ scale: 0.97 }}
           transition={{ ...spring, delay: 0.18214 }}
         >
-          <AnimatePresence mode="wait" initial={false}>
-            <motion.span
-              key={String(copied)}
-              className="flex flex-col items-center gap-2.5"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.05713 }}
-            >
-              <span className={icon}>
-                {copied ? <Check width={34} height={34} /> : <MailIcon size={34} strokeWidth={1.7} />}
-              </span>
-              <span className="break-all">{copied ? "Copied to clipboard" : profile.email}</span>
-            </motion.span>
-          </AnimatePresence>
-        </motion.button>
+          <span className={icon}><MailIcon size={34} strokeWidth={1.7} /></span>
+          <span className="break-all">{profile.email}</span>
+        </motion.a>
       </div>
 
       <motion.div
