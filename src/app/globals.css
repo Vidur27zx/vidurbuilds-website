@@ -118,11 +118,8 @@ section[id] {
   pointer-events: none;
 }
 @media (max-width: 639px) {
-  [data-site-header] > div { gap: 4px; }
-  [data-site-header] > div > a { width: 36px; height: 44px; padding-inline: 0; justify-content: center; }
-  [data-site-header] > a svg { width: 34px; height: 34px; }
-  .glass-nav { max-width: calc(100vw - 136px); gap: 0; }
-  .glass-nav a { padding-inline: clamp(6px, 2vw, 10px); font-size: 13px; min-height: 44px; display: inline-flex; align-items: center; }
+  .glass-nav { max-width: calc(100vw - 112px); }
+  .glass-nav a { padding-inline: clamp(10px, 3vw, 14px); font-size: 14px; min-height: 44px; display: inline-flex; align-items: center; }
 }
 @media (prefers-reduced-transparency: reduce) {
   .glass-nav { -webkit-backdrop-filter: none; backdrop-filter: none; }
