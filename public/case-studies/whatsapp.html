@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="WhatsApp Case Study — an independent interactive portfolio exploring a Promotions inbox for WhatsApp." />
+  <title>WhatsApp Case Study | Interactive Product Portfolio</title>
+  
+  <style>
+:root{--bg:#f5f1e9;--paper:#faf8f3;--ink:#30271f;--muted:#7d776f;--line:#dcd6ca;--brown:#4d3b30;--brown-soft:#655249;--green:#0c9163;--mint:#d4f8dd;--accent:#a5bba2;--serif:'Instrument Serif',Georgia,serif;--sans:'DM Sans',Inter,ui-sans-serif,system-ui,sans-serif;scroll-behavior:smooth}
+*{box-sizing:border-box}html{scroll-padding-top:85px}body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased}button,input,textarea{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}svg.icon{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}.svg-sprite{position:absolute;width:0;height:0;overflow:hidden}.wrap{max-width:1390px;margin:0 auto;padding-left:clamp(22px,5.4vw,84px);padding-right:clamp(22px,5.4vw,84px)}.reading-progress{height:3px;position:fixed;left:0;top:0;z-index:100;background:#748a72;width:0;pointer-events:none;transition:width .12s linear}
+.site-header{position:sticky;top:0;z-index:40;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:14px clamp(22px,5.4vw,84px);height:80px;background:rgba(245,241,233,.94);border-bottom:1px solid rgba(60,46,36,.11);backdrop-filter:blur(18px)}.site-brand{display:flex;align-items:center;gap:13px;min-width:225px}.brand-monogram{font-family:var(--serif);font-size:45px;line-height:1;letter-spacing:-5px}.brand-dot,.footer-logo span{color:#82a07b}.brand-name{font-size:11px;font-weight:800;letter-spacing:.09em;line-height:1.55}.brand-name small{display:block;font-size:8px;font-weight:600;letter-spacing:.20em;color:var(--muted)}.site-nav{display:flex;gap:clamp(12px,2vw,32px);align-items:center}.site-nav a{font-size:11px;font-weight:650;color:#64594e;transition:color .2s}.site-nav a:hover{color:#129663}.header-cta{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:white;font-size:11px;white-space:nowrap;padding:13px 18px;border-radius:4px;font-weight:650}.header-cta:hover,.button-dark:hover{background:#584237}.header-cta .icon{width:15px}.mobile-menu-toggle,.mobile-menu{display:none}
+.hero{min-height:700px;display:grid;grid-template-columns:1fr 1.07fr;align-items:center;gap:45px;position:relative;padding-top:74px;padding-bottom:125px}.eyebrow{font-size:10px;font-weight:750;letter-spacing:.16em;color:#736458;display:flex;align-items:center;gap:14px;text-transform:uppercase}.eyebrow-line{width:27px;height:1px;background:#796a5b}.mini-year{font-size:9px;color:#aaa198;letter-spacing:.07em}.hero h1,h2,h3{letter-spacing:-.045em}.hero h1{font-size:clamp(63px,6vw,102px);font-weight:550;line-height:.99;margin:35px 0 26px;white-space:nowrap}.hero h1 em,.section-intro h2 em,.insight-rule em,.system-decision em,.closing-section h2 em{font-family:var(--serif);font-weight:400;font-style:italic;letter-spacing:-.03em;color:#8a7966}.hero-description{font-size:clamp(16px,1.35vw,19px);line-height:1.75;max-width:505px;color:#675f56;margin:0}.hero-actions{display:flex;align-items:center;gap:30px;margin-top:39px;flex-wrap:wrap}.button{display:inline-flex;align-items:center;justify-content:center;gap:24px;min-height:52px;border-radius:4px;padding:14px 20px;font-size:12px;font-weight:650;transition:.2s}.button-dark{background:#382d27;color:white}.button-light{background:#efe8dc;color:#33291e}.button-light:hover{background:#fff}.text-link{font-weight:650;font-size:12px;border-bottom:1px solid #8c7c6e;padding-bottom:8px}.text-link span{margin-left:8px}.hero-micro{margin-top:43px;font-size:10px;color:#8e867c;display:flex;align-items:center;gap:10px}.green-light{display:inline-block;width:7px;height:7px;flex-shrink:0;border-radius:50%;background:#4c9b6d;box-shadow:0 0 0 4px #4c9b6d13}.hero-art{height:580px;position:relative;display:flex;align-items:center;justify-content:center}.hero-orbit{position:absolute;border:1px solid #ded6c7;border-radius:50%}.orbit-one{height:520px;width:520px;transform:rotate(-20deg)}.orbit-two{height:410px;width:410px;border-style:dashed;opacity:.7}.hero-phone-shell{width:290px;height:550px;background:#fff;border:9px solid #2a2929;border-radius:39px;box-shadow:0 25px 52px #302a201c,0 5px 15px #302a200b;z-index:1;overflow:hidden;padding-top:16px;position:relative;transform:rotate(-5deg)}.hero-phone-top{display:flex;justify-content:space-between;font-size:9px;padding:0 15px 14px;color:#181818;font-weight:750}.hero-phone-title{color:#118e58;display:flex;justify-content:space-between;align-items:center;padding:0 15px;font-size:23px;letter-spacing:-.07em}.hero-phone-title span{color:#222;font-size:16px}.hero-phone-search{margin:14px 12px 9px;background:#f5f6f5;color:#858885;border-radius:25px;padding:11px;font-size:10px}.hero-filter-strip{display:flex;gap:5px;overflow:hidden;white-space:nowrap;padding:0 12px 12px;font-size:9px}.hero-filter-strip span{border-radius:20px;background:#f2f3f1;padding:8px 10px}.hero-filter-strip .hero-pill-active{background:#d0f8da;color:#006a3e;font-weight:750}.hero-inbox-item{display:flex;align-items:center;gap:9px;padding:11px 10px;border-bottom:1px solid #f3f3f3}.fake-avatar{height:36px;width:36px;border-radius:50%;color:#fff;display:grid;place-items:center;font-size:13px;font-weight:750;flex-shrink:0}.fake-avatar.pink{background:#e53976}.fake-avatar.dark{background:#222}.fake-avatar.orange{background:#f65b27}.fake-avatar.blue{background:#4ba77a}.hero-inbox-item>span:nth-child(2){display:flex;flex-direction:column;min-width:0;gap:4px;flex:1}.hero-inbox-item strong{font-size:11px}.hero-inbox-item small{font-size:9px;color:#9b9b9b;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.hero-inbox-item time{font-size:8px;color:#888;align-self:flex-start}.hero-bottom-nav{position:absolute;bottom:0;left:0;right:0;height:57px;background:#fff;border-top:1px solid #eee;display:flex;justify-content:space-around;align-items:center}.hero-bottom-nav span{display:grid;place-items:center;font-size:16px;color:#555}.hero-bottom-nav small{font-size:7px;margin-top:4px}.hero-bottom-nav span.selected{color:#118956}.floating-note{position:absolute;display:flex;align-items:center;gap:11px;background:#fffdf9;border:1px solid #e8dfd0;border-radius:9px;padding:13px 16px;box-shadow:0 12px 35px #3c30241c;z-index:2;min-width:227px}.top-note{top:86px;right:0;transform:rotate(4deg)}.bottom-note{bottom:94px;left:-4px;transform:rotate(4deg)}.note-icon{width:38px;height:38px;display:grid;place-items:center;border-radius:8px}.note-icon.green{background:#e3f4e2;color:#25834c}.note-icon.cream{background:#f7e8d3;color:#946c42}.floating-note span:last-child{display:flex;flex-direction:column;gap:4px}.floating-note strong{font-size:11px}.floating-note small{font-size:9px;color:#847a70}.hero-art-caption{position:absolute;right:10px;bottom:0;font-size:9px;letter-spacing:.16em;color:#958a7d}.hero-facts{position:absolute;bottom:32px;left:clamp(22px,5.4vw,84px);right:clamp(22px,5.4vw,84px);display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #d7d0c6;padding-top:23px;gap:28px}.hero-facts>div{display:grid;grid-template-columns:35px auto;grid-template-rows:auto auto;align-items:start;column-gap:10px}.hero-facts>div+div{border-left:1px solid #d7d0c6;padding-left:24px}.hero-facts span{grid-row:1/3;color:#8c7965;font-family:var(--serif);font-size:25px;line-height:1}.hero-facts strong{font-size:12px;font-weight:750}.hero-facts small{font-size:10px;margin-top:5px;color:#8a8177}
+.section-intro{margin-bottom:55px}.section-intro.compact{max-width:780px}.section-intro h2{font-size:clamp(46px,5vw,75px);line-height:1.05;font-weight:550;margin:21px 0 19px}.section-intro p{font-size:15px;line-height:1.9;color:#7b7369;max-width:645px;margin:0}.problem-section{padding:108px 0 115px;background:#ece6db}.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:23px}.problem-card{min-height:360px;border-radius:8px;padding:38px}.problem-quote{background:#42352c;color:#f8efe3;display:flex;flex-direction:column;justify-content:space-between}.quote-mark{font-family:var(--serif);font-size:95px;line-height:.65;color:#9a876d}.problem-quote blockquote{margin:5px 0 30px;max-width:450px;font-family:var(--serif);font-size:clamp(30px,3.2vw,46px);line-height:1.14;letter-spacing:-.025em}.quote-foot{font-size:9px;letter-spacing:.13em;font-weight:750;color:#bdb0a0}.quote-foot span{display:block;font-weight:450;letter-spacing:0;margin-top:7px}.problem-message-stack{background:#f9f7f1;border:1px solid #e1d9cb}.stack-title{display:flex;gap:8px;align-items:center;font-size:10px;letter-spacing:.14em;font-weight:750;margin-bottom:25px}.mock-notification{display:flex;gap:13px;align-items:center;background:white;padding:12px;border:1px solid #e9e6df;border-radius:9px;margin-bottom:8px;box-shadow:0 4px 12px #271a0e07}.mock-notification.special{border:1px solid #b3d7b9;background:#f6fdf7}.notif-symbol{height:38px;width:38px;display:grid;place-items:center;border-radius:10px;color:white;background:#35312f;font-weight:800}.notif-symbol.peach{background:#e9857a}.notif-symbol.utility{background:#168c5e}.mock-notification>span:nth-child(2){display:flex;flex-direction:column;flex:1;gap:4px}.mock-notification strong{font-size:12px}.mock-notification small{font-size:11px;color:#7c7770}.small-time{font-size:9px;color:#978f85}.stack-takeaway{font-family:var(--serif);font-style:italic;font-size:22px;margin-top:18px;display:flex;gap:10px;align-items:center}.insight-rule{border-top:1px solid #d2c9ba;margin-top:74px;padding-top:23px;display:flex;justify-content:space-between;gap:25px;align-items:flex-start}.insight-label,.small-section-label{font-size:10px;font-weight:750;letter-spacing:.15em;color:#8b7d70}.insight-rule p{font-size:clamp(30px,3.6vw,53px);line-height:1.14;letter-spacing:-.04em;font-weight:600;margin:0}.insight-rule s{text-decoration-thickness:2px;text-decoration-color:#c17f73;color:#857a71}.insight-rule>span{font-size:11px;color:#877b6e;align-self:end}
+.prototype-section{padding-top:120px;padding-bottom:110px}.prototype-workspace{display:grid;grid-template-columns:minmax(222px,1fr) minmax(360px,1.18fr) minmax(240px,1fr);border:1px solid #dfd7cb;border-radius:12px;overflow:hidden;background:#faf9f5;min-height:720px}.prototype-sidebar,.prototype-inspector{padding:30px 25px}.prototype-sidebar{border-right:1px solid #e4ddd1}.sidebar-heading{font-size:10px;letter-spacing:.12em;font-weight:800;display:flex;align-items:center;gap:8px;white-space:nowrap}.sidebar-heading small{color:#948a80;font-weight:500;font-size:8px;margin-left:auto}.live-indicator{height:7px;width:7px;background:#22a377;border-radius:50%;box-shadow:0 0 0 3px #d9eee2}.control-group{border-top:1px solid #e2dcd2;padding-top:22px;margin-top:24px}.control-label{display:block;font-size:9px;color:#8e8276;letter-spacing:.13em;font-weight:750;margin-bottom:13px}.mode-toggle{display:grid;grid-template-columns:1fr 1fr;background:#eee9e1;padding:4px;border-radius:7px;gap:3px}.mode-toggle button{border:0;background:transparent;color:#877f74;padding:12px 6px;border-radius:5px;font-size:10px;font-weight:700}.mode-toggle button.active{background:#fff;color:#2b2821;box-shadow:0 2px 7px #221b1410}.control-hint{color:#979084;font-size:10px;line-height:1.65;margin:11px 0 0}.scenario-list{display:grid;gap:5px}.scenario-list button{border:1px solid transparent;background:transparent;text-align:left;padding:12px 10px;display:flex;align-items:center;gap:11px;border-radius:6px;color:#685f55}.scenario-list button span{font-family:var(--serif);font-size:17px;color:#a2978a}.scenario-list button strong{font-size:11px;font-weight:650;flex:1}.scenario-list button .icon{width:13px}.scenario-list button:hover{background:#f1ede5}.scenario-list button.active{border-color:#d7cbb9;background:#f1ece3;color:#382d26}.secondary-action{width:100%;display:flex;align-items:center;gap:9px;border:1px solid #e0d9cd;background:#fff;padding:10px;border-radius:6px;text-align:left;font-size:10px;font-weight:650;margin-bottom:8px}.secondary-action>.icon{width:14px;margin-left:auto}.secondary-action:hover{border-color:#a59886}.action-icon{width:27px;height:27px;border-radius:5px;display:grid;place-items:center;background:#f8e9df;color:#c26d4f;font-weight:800}.action-icon.parcel{background:#e3f3e8;color:#258d61}.action-icon .icon{width:15px}.reset-link{display:flex;align-items:center;gap:8px;border:0;background:transparent;color:#9b8e80;font-size:10px;padding:11px 0}.reset-link .icon{width:13px}.prototype-device-column{background:radial-gradient(circle at 50% 42%,#eae8da,#dcded3 62%,#d9dcd2 85%);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:735px;padding:28px 10px;position:relative}.device-meta{width:100%;max-width:360px;display:flex;justify-content:space-between;font-size:8px;font-weight:750;letter-spacing:.12em;color:#7b8176;margin-bottom:17px;gap:14px}.device-meta span{display:flex;align-items:center;gap:8px}.phone-frame{width:min(350px,100%);height:675px;border:8px solid #2a2d2b;border-radius:43px;background:#fff;box-shadow:0 25px 48px #26312624,0 7px 12px #26312615, inset 0 0 0 1px #5d5d5d;position:relative;overflow:hidden}.phone-camera{height:15px;width:98px;background:#2a2d2b;border-radius:0 0 15px 15px;position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:10}.phone-screen{height:100%;background:#fff;display:flex;flex-direction:column;overflow:hidden;color:#1c2522;font-family:Arial,'DM Sans',sans-serif;font-size:12px}.phone-caption{font-size:9px;line-height:1.5;color:#7c8278;text-align:center;max-width:350px;margin-top:13px}.prototype-inspector{border-left:1px solid #e4ddd1;display:flex;flex-direction:column}.inspector-eyebrow{font-size:9px;font-weight:800;letter-spacing:.13em;display:flex;justify-content:space-between;color:#938779}.prototype-inspector h3{font-size:clamp(25px,2.3vw,35px);line-height:1.12;font-weight:550;margin:29px 0 14px;letter-spacing:-.055em}.prototype-inspector>p{font-size:11px;line-height:1.85;color:#7c746a}.inspector-divider{height:1px;background:#e2dcd1;margin:24px 0}.inspector-point{display:flex;gap:12px}.inspector-dot{height:10px;width:10px;border-radius:50%;background:#7c8a75;margin-top:4px;flex-shrink:0}.inspector-point strong{font-size:12px}.inspector-point p{font-size:10px;line-height:1.8;color:#8b8075;margin:5px 0}.event-log{font-size:10px;line-height:1.6;display:grid;gap:13px;color:#766d63}.event-row{display:flex;gap:8px}.event-row:before{content:'↗';color:#269969}.inspector-settings{display:flex;align-items:center;gap:9px;text-align:left;margin-top:auto;padding:15px 0 0;border:0;border-top:1px solid #e2dcd1;background:transparent;font-size:11px;font-weight:700;color:#3d3028}.inspector-settings>.icon:last-child{margin-left:auto}.prototype-key{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:23px 0;border-bottom:1px solid #ddd5c9}.prototype-key>div{display:grid;grid-template-columns:12px auto;column-gap:9px;row-gap:4px;align-items:center}.key-circle{width:9px;height:9px;border-radius:50%;grid-row:1/3}.key-circle.green{background:#68ab82}.key-circle.cream{background:#d7ad6d}.key-circle.gray{background:#afaaa2}.prototype-key strong{font-size:11px}.prototype-key small{font-size:10px;color:#837b72}
+/* PHONE APPLICATION */
+.wa-status{height:31px;padding:13px 17px 0;display:flex;justify-content:space-between;align-items:center;font-size:10px;font-weight:700;flex-shrink:0}.wa-status-right{letter-spacing:1px;font-size:9px}.wa-topbar{height:55px;display:flex;justify-content:space-between;align-items:center;padding:0 14px;gap:8px;flex-shrink:0}.wa-topbar h3{font-size:23px;color:#098b57;letter-spacing:-.065em;margin:0;font-weight:750;font-family:Arial,sans-serif}.wa-icon-button{height:30px;width:30px;display:grid;place-items:center;background:transparent;border:0;color:#34443b;border-radius:50%}.wa-icon-button:hover{background:#edf4ee}.wa-icon-button .icon{height:18px;width:18px}.wa-top-actions{display:flex;gap:3px}.wa-search-box{margin:2px 12px 12px;background:#f4f5f4;border-radius:25px;height:38px;display:flex;align-items:center;gap:9px;padding:0 12px;flex-shrink:0;color:#7e8580}.wa-search-box .icon{width:16px}.wa-search-box input{background:transparent;width:100%;border:0;outline:0;font-size:11px;min-width:0;color:#18271e}.wa-search-box input::placeholder{color:#818782}.meta-orb{width:15px;height:15px;border-radius:50%;background:conic-gradient(#0f7ad8,#b45bff,#258bd1,#258a7e,#0f7ad8);flex-shrink:0}.wa-filters{display:flex;gap:6px;padding:0 11px 11px;flex-shrink:0;overflow-x:auto;scrollbar-width:none}.wa-filters::-webkit-scrollbar{display:none}.wa-filter{white-space:nowrap;border:0;border-radius:20px;background:#f1f3f1;color:#66716b;padding:9px 12px;font-size:10px;line-height:1;display:flex;align-items:center;gap:5px}.wa-filter.active{background:#d5f8dc;color:#066f43;font-weight:700}.wa-filter .icon{height:11px;width:11px}.wa-list-wrap{overflow-y:auto;overflow-x:hidden;flex:1;scrollbar-width:thin;scrollbar-color:#dadada transparent}.wa-list-headline{font-size:10px;color:#8b968e;padding:9px 17px 8px;display:flex;justify-content:space-between}.wa-list-headline strong{color:#147f51}.wa-chat-row{width:100%;border:0;background:#fff;text-align:left;display:flex;align-items:center;gap:11px;padding:12px 13px;min-height:69px}.wa-chat-row:hover,.wa-chat-row:focus-visible{background:#f3f6f2}.wa-avatar{height:43px;width:43px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;font-size:18px;font-weight:750;color:#fff;letter-spacing:-.045em;overflow:hidden}.wa-avatar.myntra{background:#ef4f86}.wa-avatar.ajio{background:#202424}.wa-avatar.amazon{background:#2b405a}.wa-avatar.flipkart{background:#e2a122}.wa-avatar.zomato{background:#f44541}.wa-avatar.bigbasket{background:#3d9d4b}.wa-avatar.meesho{background:#7b3d93}.wa-avatar.arjun{background:#92a69b}.wa-avatar.sana{background:#d1aa84}.wa-avatar.weekend{background:#897eaa}.wa-avatar.family{background:#c0a48a}.wa-avatar.quickmart{background:#559a83}.wa-avatar.work{background:#7182aa}.wa-avatar.uc{background:#776e65}.wa-avatar.other{background:#6d8776}.wa-row-content{min-width:0;flex:1}.wa-row-top{display:flex;align-items:center;justify-content:space-between;gap:7px}.wa-chat-name{font-size:13px;font-weight:700;color:#202b25;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.wa-time{font-size:9px;color:#87908b;white-space:nowrap}.wa-time.unread-time{color:#088f58}.wa-row-bottom{display:flex;align-items:center;justify-content:space-between;gap:5px;margin-top:5px}.wa-preview{font-size:10px;color:#8a918c;white-space:nowrap;text-overflow:ellipsis;overflow:hidden;min-width:0;max-width:220px}.wa-count{background:#25d366;color:#fff;border-radius:99px;font-size:9px;font-weight:750;min-width:18px;padding:3px 5px;text-align:center}.wa-empty{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:35px 25px;color:#76817a;gap:10px}.wa-empty .icon{width:33px;height:33px;color:#15a16a}.wa-empty strong{font-size:13px;color:#25332a}.wa-empty p{font-size:10px;line-height:1.7;margin:0}.wa-footer-note{text-align:center;padding:8px 10px;color:#88958e;font-size:9px;display:flex;align-items:center;justify-content:center;gap:4px;flex-shrink:0}.wa-footer-note .icon{width:11px;height:11px}.wa-bottom-nav{height:59px;display:flex;flex-shrink:0;border-top:1px solid #e8eae7;background:#fff;align-items:center;justify-content:space-around}.wa-nav-item{display:grid;justify-items:center;gap:5px;font-size:9px;color:#656e68;font-weight:650;min-width:55px}.wa-nav-item .icon{width:20px;height:20px}.wa-nav-item.active{color:#096b45}.wa-nav-icon{height:25px;min-width:39px;border-radius:18px;display:grid;place-items:center}.wa-nav-item.active .wa-nav-icon{background:#d0f9d7}.wa-floating-new{position:absolute;bottom:81px;right:15px;height:44px;width:44px;background:#20c964;color:#063d25;display:grid;place-items:center;border-radius:14px;box-shadow:0 4px 12px #196c3c3b}.wa-floating-new .icon{width:23px;height:23px}.phone-frame:has(.wa-thread) .wa-floating-new,.phone-frame:has(.wa-settings) .wa-floating-new{display:none}.wa-thread{display:flex;flex-direction:column;flex:1;overflow:hidden;background:#efeae2;position:relative}.wa-thread-head{height:58px;display:flex;align-items:center;gap:7px;padding:6px 9px;background:#fff;flex-shrink:0}.wa-thread-head .wa-avatar{width:33px;height:33px;font-size:15px}.wa-thread-identity{display:flex;flex-direction:column;gap:3px;flex:1;min-width:0}.wa-thread-identity strong{font-size:12px}.wa-thread-identity small{font-size:9px;color:#7c877d}.wa-thread-head .wa-icon-button{width:26px}.wa-thread-context{display:flex;justify-content:center;gap:5px;flex-shrink:0;padding:7px 9px;background:#f5f9f4;color:#618169;font-size:9px;border-bottom:1px solid #e4eee3}.wa-thread-context .icon{width:12px;height:12px}.wa-messages{padding:12px 11px 20px;overflow-y:auto;flex:1;display:flex;flex-direction:column;gap:9px;scrollbar-width:thin}.wa-day{align-self:center;background:#e7f3f1;color:#667a71;border-radius:6px;padding:5px 10px;font-size:9px}.wa-bubble{max-width:87%;font-size:11px;line-height:1.58;border-radius:7px;position:relative;padding:9px 9px 15px;box-shadow:0 2px 3px #2d292311;white-space:pre-wrap;overflow-wrap:anywhere}.wa-bubble.incoming{background:#fff;align-self:flex-start;border-top-left-radius:1px}.wa-bubble.outgoing{background:#d9fdd3;align-self:flex-end;border-top-right-radius:1px}.wa-bubble-meta{font-size:8px;color:#849087;position:absolute;bottom:3px;right:7px}.wa-bubble-tag{display:block;width:max-content;max-width:100%;border-radius:4px;padding:2px 6px;margin-bottom:7px;font-size:8px;font-weight:700;letter-spacing:.01em;background:#fff2db;color:#b08034}.wa-bubble-tag.utility{background:#e1f4e8;color:#138552}.wa-bubble-tag.unknown{background:#eef0ed;color:#66716a}.wa-bubble.highlight{box-shadow:0 0 0 2px #64b886,0 4px 10px #33895b16}.wa-reply-row{background:#f6f8f5;padding:7px;display:flex;align-items:center;gap:7px;flex-shrink:0}.wa-reply-row input{background:#fff;border:0;border-radius:23px;flex:1;min-width:0;padding:12px;font-size:11px;outline:0}.wa-reply-row button{height:35px;width:35px;background:#18b861;color:#fff;border:0;border-radius:50%;display:grid;place-items:center}.wa-reply-row button .icon{width:17px}.wa-setting-content{flex:1;overflow-y:auto;background:#f6f7f5}.wa-setting-heading{background:white;padding:12px 16px 16px;border-bottom:1px solid #ecedeb}.wa-setting-heading h4{font-size:16px;margin:0 0 8px}.wa-setting-heading p{font-size:10px;line-height:1.65;color:#737c76;margin:0}.wa-setting-block{background:#fff;margin:13px 0;padding:14px 16px}.wa-setting-block>strong{font-size:12px}.wa-setting-block>p{font-size:10px;line-height:1.65;color:#8a948e;margin:6px 0 12px}.wa-setting-option{border:1px solid #e7ece7;background:white;border-radius:8px;text-align:left;padding:10px;width:100%;margin-top:6px;display:flex;justify-content:space-between;gap:8px}.wa-setting-option span{font-size:10px;font-weight:650}.wa-setting-option small{display:block;font-size:9px;color:#8e9a90;margin-top:4px}.wa-setting-option.selected{border-color:#2db46c;background:#f4fcf6}.wa-setting-option .icon{color:#069453;width:15px}.wa-cleanup-action{border:0;background:#e5f8e8;color:#007547;padding:10px 12px;border-radius:7px;font-size:10px;font-weight:750}.wa-cleanup-action.undo{background:#f5eee6;color:#7a4c3c}.wa-setting-note{font-size:9px;color:#67746b;line-height:1.65;background:#edf5ed;padding:9px 12px;margin-top:9px;border-radius:7px}.wa-search-result-banner{padding:9px 14px;font-size:10px;color:#687b6e;background:#eef9ef}.wa-demo-toast{background:#214d32;color:white;font-size:10px;text-align:center;padding:8px 12px;position:absolute;bottom:68px;left:22px;right:22px;border-radius:8px;box-shadow:0 4px 15px #172d1720}
+/* Decisions */
+.decisions-section{background:#eee9df;padding:110px 0}.decision-tools{display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid #cdc4b6;padding:0 0 19px}.decision-tools>span{font-size:10px;letter-spacing:.12em;font-weight:750}.decision-filters{display:flex;gap:6px}.decision-filters button{border:1px solid #d9d0c4;background:transparent;border-radius:20px;padding:9px 13px;color:#7e7366;font-size:10px}.decision-filters button.active{background:#403229;color:#fff;border-color:#403229}.decision-row{display:grid;grid-template-columns:55px 1fr 170px 22px;gap:20px;padding:23px 9px 22px 0;border-bottom:1px solid #d5ccbf;align-items:center;cursor:pointer}.decision-row:hover{background:#e8e2d7}.decision-num{font-family:var(--serif);font-size:25px;color:#998b79}.decision-main h3{font-size:17px;font-weight:650;letter-spacing:-.025em;margin:0}.decision-main p{font-size:11px;color:#73695e;margin:7px 0 0}.decision-type{font-size:10px;color:#8b8072;text-transform:uppercase;letter-spacing:.07em}.decision-expand{transition:transform .2s}.decision-row[aria-expanded=true] .decision-expand{transform:rotate(180deg)}.decision-detail{display:none;grid-column:2/4;padding:8px 0 8px;max-width:780px}.decision-row[aria-expanded=true] .decision-detail{display:block}.decision-detail p{font-size:12px;line-height:1.8;color:#695e53}.decision-detail strong{display:block;margin-top:12px;font-size:11px;color:#4e4034}
+/* System */
+.system-section{padding-top:112px;padding-bottom:112px}.architecture-card{background:#f9f7f2;border:1px solid #ded7cb;border-radius:9px;padding:31px}.architecture-top{display:grid;grid-template-columns:1fr 25px 1fr 25px 1.13fr;gap:15px;align-items:center}.architecture-top>div{min-height:152px;border:1px solid #e1d9cc;background:#fff;padding:22px;display:flex;flex-direction:column;gap:13px;border-radius:7px}.architecture-top>div.highlight-arch{background:#e2eee4;border-color:#a9c7ae}.architecture-top>.icon{color:#a69b8d;width:20px}.box-kicker{font-size:9px;letter-spacing:.12em;color:#918573;font-weight:800}.architecture-top strong{font-size:15px;line-height:1.4}.architecture-top small{font-size:11px;line-height:1.6;color:#81776d}.architecture-divider{display:flex;align-items:center;gap:15px;margin:36px 0 26px;color:#8b8176;font-size:9px;letter-spacing:.12em;font-weight:750}.architecture-divider:before,.architecture-divider:after{content:'';height:1px;background:#ddd6ca;flex:1}.architecture-outcomes{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.architecture-outcomes>div{display:flex;flex-direction:column;align-items:center;text-align:center;gap:9px;padding:9px}.arch-icon{height:48px;width:48px;border-radius:13px;background:#dff1e6;color:#187948;display:grid;place-items:center}.arch-icon.warm{background:#f2e7d6;color:#926f41}.arch-icon.light{background:#e8e6ee;color:#776c89}.arch-icon .icon{width:23px;height:23px}.architecture-outcomes strong{font-size:13px}.architecture-outcomes small{font-size:11px;color:#877e71;line-height:1.6;max-width:190px}.system-bottom{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-top:62px}.system-decision h3{font-size:clamp(29px,3vw,43px);line-height:1.15;margin:18px 0}.system-decision p{font-size:13px;color:#7c7267;line-height:1.9;max-width:530px}.technical-warning{display:flex;gap:9px;align-items:center;color:#975940;font-size:11px;font-weight:700;margin-top:20px}.system-guardrails{display:grid;grid-template-columns:1fr 1fr;gap:27px 23px}.system-guardrails>div{border-top:1px solid #d6cfc2;padding-top:14px}.system-guardrails span{font-family:var(--serif);font-size:24px;color:#a18d75;display:block;margin-bottom:16px}.system-guardrails strong{font-size:13px}.system-guardrails p{font-size:11px;color:#86796d;line-height:1.7}
+/* PRD */
+.prd-section{padding:110px 0;background:#ece7dd}.prd-layout{display:grid;grid-template-columns:255px 1fr;gap:50px}.prd-sidebar{border-top:3px solid #483b30;height:max-content;background:#f8f5ee;padding:24px}.prd-meta-title{font-size:12px;letter-spacing:.06em;font-weight:800;display:flex;justify-content:space-between;gap:9px;margin-bottom:23px}.prd-meta-title span{font-size:10px;color:#948475}.prd-info{display:flex;flex-direction:column;padding:13px 0;border-top:1px solid #e2d9ca;gap:8px}.prd-info span{font-size:9px;letter-spacing:.11em;color:#908376;font-weight:700}.prd-info strong{font-size:12px}.prd-aside-note{background:#e4eadd;color:#5c775e;display:flex;gap:10px;padding:14px;margin-top:21px}.prd-aside-note p{font-size:11px;line-height:1.6;margin:0}.prd-block{margin-bottom:50px}.prd-block-heading{display:flex;justify-content:space-between;gap:20px;font-size:10px;letter-spacing:.12em;color:#796d60;font-weight:750;border-bottom:1px solid #cfc5b8;padding-bottom:17px}.requirements-row{border-bottom:1px solid #d2c8bb}.requirement-toggle{display:grid;grid-template-columns:68px 1fr 25px;gap:14px;align-items:center;background:transparent;border:0;text-align:left;width:100%;padding:19px 0}.requirement-toggle span{font-size:11px;color:#978777;font-weight:650}.requirement-toggle strong{font-size:14px;font-weight:650}.requirement-toggle .icon{width:17px;transition:.2s}.requirements-row.open .requirement-toggle .icon{transform:rotate(180deg)}.requirement-body{display:none;margin:0 0 21px 82px;font-size:12px;line-height:1.85;color:#766b5f}.requirements-row.open .requirement-body{display:block}.requirement-body strong{font-size:11px;color:#534438}.scope-grid{display:grid;grid-template-columns:1fr 1fr;gap:35px;padding-top:21px}.scope-grid>div{background:#faf7f1;padding:24px}.scope-grid h4{display:flex;align-items:center;gap:9px;font-size:13px;margin:0 0 16px}.scope-grid h4 .icon{color:#31976b}.scope-grid>div+div h4 .icon{color:#a1846d}.scope-grid ul{padding-left:19px;margin:0}.scope-grid li{font-size:11px;line-height:2;color:#746a5e}
+/* Risks */
+.risk-section{padding-top:112px;padding-bottom:112px}.feasibility-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.feasibility-card{background:#faf8f3;border:1px solid #e1d8cb;border-radius:7px;padding:27px;min-height:225px}.rating-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:6px}.rating-dot.green{background:#61a57a}.rating-dot.gold{background:#cbad70}.rating-dot.red{background:#d47769}.feasibility-card>strong{font-size:10px;color:#877a6d}.feasibility-card h3{font-size:20px;letter-spacing:-.04em;margin:24px 0 10px}.feasibility-card p{font-size:12px;color:#82786d;line-height:1.75;margin:0}.risk-table-wrap{margin-top:50px;overflow-x:auto}.risk-table{width:100%;border-collapse:collapse;text-align:left}.risk-table th{font-size:10px;letter-spacing:.13em;color:#897d70;padding:16px 20px 16px 0;border-bottom:2px solid #d2cabc}.risk-table td{font-size:12px;padding:19px 25px 19px 0;border-bottom:1px solid #dfd6ca;color:#6c6055;line-height:1.5}.risk-table td:first-child{font-weight:650;color:#463b31;min-width:270px}.risk-table td:last-child{min-width:340px}.severity{font-size:10px;font-weight:750;border-radius:4px;padding:5px 9px}.severity.critical{background:#f5dbd8;color:#ac574a}.severity.high{background:#f5e9d5;color:#a67834}.severity.medium{background:#e9e9e0;color:#7d7d64}
+/* Measurement */
+.measurement-section{background:#e7ebdf;padding:112px 0}.measurement-grid{display:grid;grid-template-columns:1.24fr .85fr;gap:22px}.metric-builder,.metric-guardrails{background:#fafaf5;border:1px solid #dce3d4;border-radius:8px;padding:35px}.metric-builder-head{display:flex;align-items:center;justify-content:space-between;gap:10px}.example-badge{font-size:9px;color:#6d856e;background:#e9f2e6;border-radius:25px;padding:8px 11px}.metric-builder h3{font-size:38px;line-height:1.1;margin:25px 0 12px}.metric-builder>p{font-size:12px;color:#798374;line-height:1.8;max-width:435px;margin:0 0 30px}.slider-row{margin-bottom:25px}.slider-row label{display:flex;justify-content:space-between;gap:10px;font-size:12px;font-weight:650;margin-bottom:14px}.slider-row label strong{font-size:15px;color:#19764f}.slider-row input{width:100%;accent-color:#428a60;cursor:pointer}.slider-scale{display:flex;justify-content:space-between;font-size:9px;color:#9aa396}.result-panels{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:16px}.result-panels>div{background:#f0f3eb;padding:16px;display:flex;flex-direction:column;gap:6px}.result-panels>div.reduction-result{background:#2f6047;color:#fff}.result-panels span{font-size:9px;letter-spacing:.12em;font-weight:700;color:#7d8f7d}.result-panels .reduction-result span,.result-panels .reduction-result small{color:#cde4d2}.result-panels strong{font-family:var(--serif);font-size:49px;line-height:1;font-weight:400}.result-panels small{font-size:10px;color:#879987}.metric-bar{height:7px;background:#dee5d9;border-radius:20px;overflow:hidden;margin-top:20px}.metric-bar>span{display:block;background:#367853;height:100%;width:75%;border-radius:20px;transition:width .2s}.metric-guardrails .small-section-label{padding-bottom:22px;border-bottom:1px solid #e1e8db}.guardrail-primary{padding:22px 0;border-bottom:1px solid #e1e8db}.guardrail-primary span{display:block;font-size:9px;letter-spacing:.12em;color:#718a74;font-weight:800}.guardrail-primary strong{font-family:var(--serif);font-size:70px;color:#2b6849;font-weight:400;display:block;line-height:1.2;margin-top:4px}.guardrail-primary p{font-size:11px;color:#748675;line-height:1.75;margin:0}.guardrail-item{display:flex;gap:12px;border-bottom:1px solid #e1e8db;padding:18px 0}.guardrail-item .icon{color:#55936c;width:19px;height:19px}.guardrail-item strong{font-size:11px}.guardrail-item p{font-size:10px;line-height:1.7;color:#829181;margin:6px 0 0}.experiment-strip{display:grid;grid-template-columns:1fr 24px 1fr 24px 1fr;align-items:center;gap:25px;margin-top:36px}.experiment-strip>div{border-top:1px solid #bdcab9;padding-top:17px}.experiment-strip>div span{font-family:var(--serif);font-size:23px;color:#6d8469;margin-bottom:13px;display:block}.experiment-strip>div strong{display:block;font-size:13px}.experiment-strip>div small{display:block;font-size:11px;line-height:1.65;color:#7b897a;margin-top:7px}.experiment-strip>.icon{width:20px;color:#718d75}
+/* Close/footer */
+.closing-section{background:#403229;color:#f7f0e5;padding-top:95px;padding-bottom:90px;position:relative;overflow:hidden;min-height:490px}.closing-label{font-size:10px;letter-spacing:.17em;color:#b2a392;font-weight:750}.closing-section h2{font-size:clamp(49px,5vw,76px);line-height:1.08;font-weight:500;max-width:890px;position:relative;z-index:1;margin:26px 0}.closing-section h2 em{color:#c6b59e}.closing-section>p{max-width:635px;font-size:14px;line-height:1.85;color:#c0b3a3;position:relative;z-index:1}.closing-actions{display:flex;align-items:center;gap:26px;margin-top:30px;position:relative;z-index:1}.closing-secondary{font-size:12px;color:#e3d6c8;border-bottom:1px solid #9d8875;padding-bottom:7px}.closing-watermark{font-size:clamp(55px,7.3vw,112px);font-weight:800;position:absolute;bottom:-22px;right:-20px;opacity:.055;letter-spacing:-.075em;white-space:nowrap}.site-footer{background:#29221e;color:#eee7dc;padding:60px 0 25px}.footer-top{display:flex;justify-content:space-between;gap:50px;padding-bottom:65px}.footer-top>div:first-child{display:grid;grid-template-columns:55px 1fr;grid-template-rows:40px auto;column-gap:12px}.footer-logo{grid-row:1/3;font-family:var(--serif);font-size:52px;line-height:1}.footer-top strong{font-size:13px;align-self:center}.footer-top p{font-size:11px;line-height:1.8;color:#a89d90;margin:7px 0 0}.footer-links{display:flex;flex-direction:column;gap:12px;min-width:350px}.footer-links strong{font-size:9px;letter-spacing:.12em;color:#cabaa7;margin-bottom:6px}.footer-links a{font-size:11px;color:#ab9f93;display:flex;align-items:center;gap:7px}.footer-links a:hover{color:#fff}.footer-links .icon{width:12px;height:12px}.footer-bottom{border-top:1px solid #50433a;display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:24px;font-size:10px;color:#988c80}.footer-bottom a{color:#e1d6c8}.toast{position:fixed;z-index:100;bottom:23px;left:50%;transform:translateX(-50%) translateY(20px);background:#2e352e;color:white;border-radius:7px;padding:13px 18px;font-size:12px;box-shadow:0 12px 40px #0003;opacity:0;transition:.25s;pointer-events:none;max-width:min(94vw,430px);text-align:center}.toast.visible{opacity:1;transform:translateX(-50%) translateY(0)}
+/* Responsive */
+@media(max-width:1250px){.site-nav{gap:14px}.site-nav a{font-size:10px}.site-brand{min-width:190px}.prototype-workspace{grid-template-columns:215px minmax(350px,1.4fr) 230px}.prototype-sidebar,.prototype-inspector{padding:24px 17px}.sidebar-heading small{display:none}.hero-art{transform:scale(.94)}}
+@media(max-width:1050px){.site-nav{display:none}.mobile-menu-toggle{display:grid;place-items:center;width:38px;height:38px;border:1px solid #d8cec1;background:transparent;border-radius:5px}.mobile-menu{display:none;position:fixed;top:80px;right:0;left:0;background:#f5f1e9;padding:18px 25px 25px;z-index:39;box-shadow:0 12px 22px #0001}.mobile-menu.open{display:grid;gap:15px}.mobile-menu a{font-size:13px;font-weight:650}.header-cta{margin-left:auto}.hero{gap:20px}.hero h1{font-size:clamp(56px,6.5vw,85px)}.hero-art{transform:scale(.82);margin:0 -45px}.prototype-workspace{grid-template-columns:240px minmax(350px,1fr)}.prototype-inspector{grid-column:1/3;border-top:1px solid #e4ddd1;border-left:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 36px}.prototype-inspector h3{grid-column:1;grid-row:2}.prototype-inspector>p{grid-column:1;grid-row:3}.prototype-inspector .inspector-divider{display:none}.prototype-inspector .inspector-point{grid-column:2;grid-row:2}.prototype-inspector .event-log{grid-column:2;grid-row:3}.prototype-inspector .inspector-settings{grid-column:2;grid-row:4}.prototype-inspector .inspector-eyebrow:nth-of-type(2){grid-column:2;grid-row:1}.prototype-key{gap:10px}}
+@media(max-width:760px){.wrap{padding-left:21px;padding-right:21px}.site-header{padding:12px 21px;height:72px}.mobile-menu{top:72px}.site-brand{min-width:0}.brand-name{font-size:10px}.header-cta{display:none}.hero{grid-template-columns:1fr;padding-top:62px;padding-bottom:142px;gap:0}.hero h1{font-size:clamp(57px,11vw,91px);white-space:normal}.hero-description{max-width:540px}.hero-art{height:565px;transform:scale(.92);margin:0 auto;width:100%;max-width:520px}.top-note{right:-12px}.bottom-note{left:-4px}.hero-facts{bottom:17px;left:21px;right:21px;grid-template-columns:repeat(3,1fr);gap:10px}.hero-facts>div{display:block}.hero-facts>div+div{padding-left:12px}.hero-facts span{display:block;font-size:19px;margin-bottom:8px}.hero-facts strong{font-size:10px;display:block}.hero-facts small{font-size:9px}.section-intro h2{font-size:clamp(44px,8vw,61px)}.problem-section,.decisions-section,.system-section,.prd-section,.risk-section,.measurement-section{padding-top:80px;padding-bottom:80px}.problem-grid,.system-bottom,.measurement-grid,.scope-grid,.feasibility-grid{grid-template-columns:1fr}.problem-card{min-height:300px}.insight-rule{display:block}.insight-rule p{margin-top:20px}.insight-rule>span{display:block;margin-top:15px}.prototype-section{padding-top:80px;padding-bottom:80px}.prototype-workspace{grid-template-columns:1fr;overflow:visible}.prototype-sidebar{border-right:0;border-bottom:1px solid #e4ddd1}.scenario-list{grid-template-columns:1fr 1fr}.control-group{margin-top:19px;padding-top:18px}.prototype-device-column{min-height:770px}.prototype-inspector{grid-column:1;display:block}.prototype-inspector h3{margin-top:18px}.prototype-inspector .inspector-divider{display:block;margin:19px 0}.prototype-inspector .inspector-settings{margin-top:22px}.prototype-key{grid-template-columns:1fr;gap:19px}.decision-row{grid-template-columns:40px 1fr 22px;gap:12px}.decision-type{display:none}.decision-detail{grid-column:2/3}.architecture-top{grid-template-columns:1fr;gap:10px}.architecture-top>.icon{transform:rotate(90deg);justify-self:center}.architecture-top>div{min-height:110px}.architecture-outcomes{grid-template-columns:1fr;gap:15px}.architecture-outcomes>div{padding:10px}.system-guardrails{margin-top:18px}.prd-layout{grid-template-columns:1fr;gap:28px}.prd-sidebar{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}.prd-meta-title{grid-column:1/3}.prd-aside-note{grid-column:1/3}.metric-builder,.metric-guardrails{padding:25px}.experiment-strip{grid-template-columns:1fr;gap:10px}.experiment-strip>.icon{transform:rotate(90deg);margin-left:15px}.closing-section{padding-top:80px;padding-bottom:80px;min-height:500px}.footer-top{display:block}.footer-top>div:first-child{margin-bottom:45px}.footer-links{min-width:0}.footer-bottom{align-items:flex-start;flex-direction:column;gap:12px}}
+@media(max-width:450px){.hero h1{font-size:55px}.hero-art{transform:scale(.78);margin:-37px -30px;width:calc(100% + 60px);height:530px}.top-note{right:-15px}.bottom-note{left:-20px}.hero-facts{grid-template-columns:1fr 1fr 1fr}.hero-facts small{font-size:8px;line-height:1.45}.scenario-list{grid-template-columns:1fr}.prototype-workspace{border-radius:8px}.prototype-device-column{padding:25px 4px}.phone-frame{width:min(350px,96%)}.device-meta{width:92%}.decision-tools{align-items:flex-start;flex-direction:column}.decision-filters{flex-wrap:wrap}.scope-grid{grid-template-columns:1fr}.result-panels{gap:4px}.result-panels>div{padding:12px}.result-panels strong{font-size:40px}.architecture-card{padding:20px}.closing-section h2{font-size:49px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+.hero{overflow:hidden}.signal-note{display:flex;align-items:flex-start;gap:14px;border:1px solid #dfd6c9;background:#f4f0e7;padding:19px 21px;margin-top:19px;border-radius:7px}.signal-note-icon{background:#e3eadd;color:#387d56;height:34px;width:34px;display:grid;place-items:center;flex-shrink:0;border-radius:7px}.signal-note strong{font-size:12px}.signal-note p{font-size:11px;color:#796d60;line-height:1.8;margin:6px 0 0}.research-note{margin-top:26px;border-top:1px solid #c3d0be;padding:20px 0 0;display:grid;grid-template-columns:200px 1fr;gap:25px}.research-note strong{font-size:12px}.research-note p{margin:0;font-size:11px;line-height:1.8;color:#687b6e}@media(max-width:760px){.research-note{grid-template-columns:1fr;gap:9px}.hero-art{overflow:clip}}
+
+
+/* WhatsApp Case Study — restrained UI-led visual direction.
+   Use system UI fonts for offline reliability; the phone uses a Roboto-like Android stack. */
+:root {
+ --bg:#ffffff; --paper:#ffffff; --ink:#111b21; --muted:#667781;
+ --line:#e9edef; --brown:#075e54; --brown-soft:#0b8067;
+ --green:#00a884; --mint:#d9fdd3; --accent:#e7fce3;
+ --serif:system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+ --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+ scroll-behavior:smooth;
+}
+body {font-family:var(--sans);background:#fff;color:#111b21;font-weight:400;}
+.wrap{max-width:1320px;padding-left:clamp(20px,4.8vw,72px);padding-right:clamp(20px,4.8vw,72px)}
+a,button{-webkit-tap-highlight-color:transparent}
+button:focus-visible,a:focus-visible,[role="button"]:focus-visible {outline:3px solid #25d366;outline-offset:3px}
+.reading-progress{background:#25d366;height:3px}
+/* WhatsApp-style top app bar */
+.site-header{height:74px;padding:12px clamp(20px,4.8vw,72px);background:#fff;border-bottom:1px solid #e9edef;box-shadow:none;backdrop-filter:none}
+.site-brand{gap:11px;min-width:210px}
+.brand-monogram{letter-spacing:0;font-size:22px;border-radius:50%;height:39px;width:39px;display:grid;place-items:center;background:#25d366;color:#fff}
+.brand-monogram .icon{height:23px;width:23px;stroke-width:1.85}
+.brand-name{font-size:17px;letter-spacing:-.035em;line-height:1.02;font-weight:750;color:#075e54}
+.brand-name small{margin-top:5px;font-size:9px;letter-spacing:.115em;color:#72847e;font-weight:700}
+.site-nav{gap:clamp(14px,1.5vw,25px)}
+.site-nav a{font-size:12px;font-weight:600;color:#465b56}
+.site-nav a:hover{color:#008c6e}
+.header-cta{background:#075e54;color:#fff;border-radius:24px;font-size:12px;font-weight:700;padding:12px 18px;gap:10px}
+.header-cta:hover{background:#0a7662}
+.mobile-menu-toggle{border-color:#e3ebe5!important;border-radius:50%!important;background:#f4f7f5!important}
+.mobile-menu{background:#fff!important;box-shadow:0 14px 20px #061b1218!important;border-bottom:1px solid #e9edef}
+/* Hero: no editorial ornament, no perspective/rotation, app-first */
+.hero{grid-template-columns:minmax(0,1.03fr) minmax(390px,.97fr);gap:30px;min-height:676px;padding-top:48px;padding-bottom:130px;background:#fff}
+.hero-copy{position:relative;z-index:2}
+.eyebrow{font-size:10px;letter-spacing:.09em;font-weight:800;color:#00846a;gap:9px;text-transform:uppercase}
+.eyebrow-line{width:18px;height:2px;background:#25d366}
+.mini-year{color:#91a09a;font-size:10px}
+.hero h1{font-family:var(--sans);font-weight:750;font-size:clamp(58px,6.4vw,91px);letter-spacing:-.062em;line-height:.99;margin:27px 0 27px;white-space:normal}
+.hero-whatsapp{color:#008c6a}
+.hero-period{color:#25d366}
+.hero-description{max-width:550px;color:#465b56;font-size:clamp(17px,1.45vw,20px);line-height:1.58;font-weight:400}
+.hero-actions{margin-top:32px;gap:24px}
+.button{border-radius:100px;min-height:49px;padding:12px 20px;font-size:13px;gap:14px;font-weight:700}
+.button-dark{background:#075e54;color:#fff;box-shadow:none}
+.button-dark:hover{background:#087b62}
+.button-light{background:#d9fdd3;color:#075e54}
+.button-light:hover{background:#bdf7b7}
+.text-link{font-size:12px;border:0;color:#075e54;font-weight:750;text-decoration:underline;text-decoration-color:#9ad3bd;text-underline-offset:7px}
+.hero-micro{font-size:11px;color:#75857d;margin-top:22px;gap:7px}
+.hero-micro .icon{width:13px;height:13px;color:#60766c}
+.hero-highlight{display:flex;align-items:center;gap:14px;margin-top:39px;padding:16px 18px;background:#f2fbf3;border:1px solid #d5edda;border-radius:14px;max-width:490px}
+.hero-highlight-icon{width:31px;height:31px;border-radius:50%;display:grid;place-items:center;background:#d9fdd3;color:#0b7d50;flex-shrink:0}
+.hero-highlight-icon .icon{height:17px;width:17px}
+.hero-highlight>span:last-child{display:flex;flex-direction:column;gap:4px}
+.hero-highlight strong{font-size:13px;font-weight:750;color:#174f38}
+.hero-highlight small{font-size:12px;color:#557566}
+.hero-art{height:552px;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#f1f5f3;border:1px solid #e5efea;border-radius:26px;position:relative;overflow:hidden}
+.hero-orbit,.floating-note{display:none!important}
+.hero-phone-shell{width:296px;height:500px;transform:none;border:6px solid #26342e;border-radius:34px;padding-top:14px;box-shadow:0 16px 28px #0b332119,0 2px 3px #0025121a;background:#fff}
+.hero-phone-top{font-family:Roboto,Arial,sans-serif;padding:0 15px 12px;font-size:10px}
+.hero-phone-title{color:#00876a;font-size:22px;letter-spacing:-.04em;padding:0 15px}
+.hero-phone-title span{display:flex;gap:15px;color:#33423d}
+.hero-phone-title .icon{height:17px;width:17px}
+.hero-phone-search{background:#f0f2f5;color:#788984;display:flex;align-items:center;gap:9px;border-radius:100px;margin:14px 12px 12px;padding:11px 13px;font-size:10px}
+.hero-filter-strip{padding:0 10px 12px;gap:5px}
+.hero-filter-strip span{background:#f0f2f5;color:#667781;font-size:9px;padding:8px 10px}
+.hero-filter-strip .hero-pill-active{color:#075e54;background:#d9fdd3}
+.hero-inbox-item{gap:10px;padding:11px 13px;border-bottom:1px solid #f1f4f4}
+.fake-avatar{height:39px;width:39px;font-weight:750}
+.hero-inbox-item strong{font-size:12px;font-weight:700}
+.hero-inbox-item small{font-size:10px;color:#667781}
+.hero-inbox-item time{font-size:9px;color:#6e817c}
+.hero-bottom-nav{height:52px;border-top:1px solid #edf1f0}
+.hero-bottom-nav span{font-size:11px;gap:0;color:#53665e}
+.hero-bottom-nav .icon{height:18px;width:18px}
+.hero-bottom-nav small{font-size:8px}
+.hero-bottom-nav span.selected{color:#075e54}
+.hero-art-caption{position:absolute;left:20px;right:auto;bottom:14px;display:flex;align-items:center;gap:8px;font-size:9px;letter-spacing:.08em;color:#3d7661;background:#f1f5f3;padding:2px 6px;font-weight:750}
+.hero-facts{bottom:0;border-top:1px solid #e7edeb;padding-top:19px;gap:18px}
+.hero-facts>div{grid-template-columns:30px auto;column-gap:10px}
+.hero-facts>div+div{border-left:1px solid #e9efeb;padding-left:18px}
+.hero-facts span{font-family:var(--sans);font-size:22px;color:#0f9a76;font-weight:750}
+.hero-facts strong{font-size:12px;color:#16352a;font-weight:750}
+.hero-facts small{font-size:11px;color:#7b8f85;margin-top:4px}
+/* Section foundations — white & soft neutrals; no editorial serif */
+.problem-section,.prototype-section,.decisions-section,.system-section,.prd-section,.risk-section,.measurement-section{padding-top:88px;padding-bottom:88px}
+.problem-section,.decisions-section,.prd-section,.measurement-section{background:#f7f9f8}
+.prototype-section,.system-section,.risk-section{background:#fff}
+.section-intro{margin-bottom:36px}
+.section-intro.compact{max-width:900px}
+.section-intro h2{font-family:var(--sans);font-size:clamp(32px,3.4vw,49px);letter-spacing:-.05em;line-height:1.1;font-weight:750;margin:15px 0}
+.section-intro h2 em,.hero h1 em,.system-decision em,.closing-section h2 em,.insight-rule em{font:inherit;color:inherit;letter-spacing:inherit}
+.section-intro p{font-size:15px;line-height:1.68;color:#5b7067;max-width:745px}
+/* Problem: compact chat-and-notifications example */
+.problem-grid{gap:16px;grid-template-columns:.93fr 1.07fr}
+.problem-card{min-height:305px;border-radius:17px;padding:28px;box-shadow:none}
+.problem-quote{background:#075e54;color:#fff;border:0}
+.quote-mark{font-size:20px;line-height:1;color:#c6f4d1}
+.quote-mark .icon{height:26px;width:26px}
+.problem-quote blockquote{font-family:var(--sans);font-style:normal;font-size:clamp(22px,2.3vw,32px);letter-spacing:-.035em;line-height:1.28;font-weight:600;max-width:480px;margin:12px 0 30px}
+.quote-foot{color:#b3e9cd;font-size:9px;letter-spacing:.065em;font-weight:800}
+.quote-foot span{color:#d8eee2;font-size:11px;font-weight:400}
+.problem-message-stack{background:#fff;border:1px solid #e5ebe7}
+.stack-title{color:#566e63;font-size:10px;letter-spacing:.07em;margin-bottom:18px}
+.mock-notification{border:1px solid #edf1f0;border-radius:10px;box-shadow:none;padding:10px 12px;margin-bottom:7px}
+.mock-notification.special{border:1px solid #b9eec7;background:#f2fdf4}
+.notif-symbol{border-radius:50%;background:#111b21}
+.notif-symbol.peach{background:#ec457f}
+.notif-symbol.utility{background:#008c6a}
+.mock-notification strong{font-size:12px;color:#182922}
+.mock-notification small{font-size:11px;color:#667781}
+.stack-takeaway{font-family:var(--sans);font-style:normal;font-weight:700;font-size:13px;color:#075e54;margin-top:11px}
+.insight-rule{border-top:1px solid #e0e9e3;margin-top:40px;padding-top:25px;align-items:center}
+.insight-label,.small-section-label{color:#008c6a;font-size:10px;letter-spacing:.07em;font-weight:800}
+.insight-rule p{font-size:clamp(23px,2.8vw,36px);letter-spacing:-.04em;color:#111b21;font-weight:750}
+.insight-rule>span{font-size:12px;color:#647a6b;max-width:240px;line-height:1.5}
+/* Interactive workbench — familiar conversation controls */
+.prototype-workspace{grid-template-columns:minmax(235px,.92fr) minmax(360px,1.35fr) minmax(245px,.95fr);background:#fff;border:1px solid #e2ebe6;border-radius:16px;box-shadow:none;overflow:hidden}
+.prototype-sidebar{background:#fff;border-right:1px solid #e8efeb;padding:28px 22px}
+.prototype-device-column{background:#eaf2ed;min-height:745px;padding:28px 12px}
+.prototype-inspector{background:#fff;padding:28px 23px}
+.sidebar-heading,.device-meta,.inspector-eyebrow{font-size:10px;color:#008c6a;letter-spacing:.055em;font-weight:800}
+.sidebar-heading .live-indicator,.live-indicator{background:#25d366}
+.control-group{border-color:#e9edef}
+.control-label{color:#6c8378;letter-spacing:.075em;font-size:10px}
+.mode-toggle{background:#f0f2f5;border-radius:25px;padding:3px;box-shadow:none}
+.mode-toggle button{border-radius:22px;color:#53675e;font-size:11px;font-weight:600}
+.mode-toggle button.active{background:#d9fdd3;color:#075e54;box-shadow:none}
+.control-hint{color:#82978b;font-size:11px}
+.scenario-list button{border-radius:9px;color:#3e5b4a}
+.scenario-list button:hover{background:#f2f8f4}
+.scenario-list button.active{background:#e8fae9;border:1px solid #a5e6bd;color:#075e54}
+.scenario-list button strong{font-size:11px}
+.scenario-list button span{color:#439775;font-family:var(--sans);font-size:12px;font-weight:750}
+.secondary-action{border:1px solid #e6edeb;border-radius:10px;background:#fff;box-shadow:none}
+.secondary-action:hover{border-color:#b0e6c8;background:#f7fcf8}
+.action-icon{background:#d9fdd3!important;color:#075e54!important;border-radius:50%!important}
+.reset-link{color:#00765f}
+.phone-frame{border:7px solid #223029;border-radius:38px;box-shadow:0 14px 26px #0b32211d,0 2px 4px #0024141a}
+.phone-screen{font-family:Roboto,'Helvetica Neue',Arial,sans-serif;color:#111b21}
+.device-meta,.phone-caption{color:#507260}
+.phone-caption{font-size:11px;line-height:1.5;max-width:360px}
+.wa-topbar h3{letter-spacing:-.035em;color:#00866a}
+.wa-filters .wa-filter{background:#f0f2f5;color:#667781}
+.wa-filters .wa-filter.active{background:#d9fdd3;color:#075e54}
+.wa-list-headline strong{color:#00876c}
+.wa-count{background:#25d366}
+.wa-thread{background:#efeae2}
+.wa-thread-context{background:#f0f8f3;color:#347858}
+.wa-bubble.outgoing{background:#d9fdd3}
+.wa-bubble.highlight{box-shadow:0 0 0 2px #25d366}
+.wa-reply-row button,.wa-floating-new{background:#25d366;color:#084b2b}
+.wa-setting-option.selected{border-color:#25d366;background:#f4fdf4}
+.wa-cleanup-action{background:#d9fdd3;color:#075e54}
+.inspector-eyebrow{color:#4a8068}
+.prototype-inspector h3{font-family:var(--sans);font-size:24px;line-height:1.16;letter-spacing:-.04em;font-weight:750;color:#111b21}
+.prototype-inspector>p,.inspector-point p{color:#6a7e74;line-height:1.6;font-size:12px}
+.inspector-point strong{font-size:12px;color:#143e2d}
+.inspector-dot.good{background:#25d366}
+.inspector-divider{border-color:#e8efeb}
+.event-row{border-color:#e6eeea;color:#687f72;font-size:11px}
+.inspector-settings{border:1px solid #b6eac3;border-radius:24px;background:#e9fae7;color:#075e54;font-size:11px;font-weight:750}
+.inspector-settings:hover{background:#d9fdd3}
+.prototype-key{border-color:#e7eeea;margin-top:18px}
+.key-circle.green{background:#25d366}
+.key-circle.cream{background:#00876a}
+.key-circle.gray{background:#a0aaa5}
+.prototype-key strong{color:#284b37}
+.prototype-key small{color:#6f8279}
+/* Decision register: simple app-like accordion list */
+.decision-tools{border-bottom:1px solid #e1eae4}
+.decision-tools>span{letter-spacing:.07em;color:#638273}
+.decision-filters button{background:#fff;border:1px solid #e2ebe6;color:#52695c;border-radius:100px;font-size:11px;padding:9px 14px}
+.decision-filters button.active{background:#d9fdd3;border-color:#b8ebc5;color:#075e54}
+.decision-list{border:1px solid #e5ede8;border-radius:14px;overflow:hidden;background:#fff}
+.decision-row{padding:19px 22px;border-bottom:1px solid #eef2ef;grid-template-columns:40px 1fr 170px 22px}
+.decision-row:last-child{border:0}
+.decision-row:hover{background:#f5faf6}
+.decision-num{font-family:var(--sans);font-size:12px;line-height:1.5;color:#078e6b;background:#e6f8e8;border-radius:50%;width:34px;height:34px;display:grid;place-items:center;font-weight:800}
+.decision-main h3{font-size:15px;letter-spacing:-.02em;font-weight:750}
+.decision-main p{font-size:12px;color:#6e8275;line-height:1.5}
+.decision-type{color:#52836a;font-size:10px;letter-spacing:0;text-transform:none}
+.decision-detail{color:#597668;font-size:12px;line-height:1.7}
+.decision-detail strong{color:#075e54}
+/* Architecture and system */
+.architecture-card{border:1px solid #e1eee5;background:#f6fbf7;border-radius:16px;padding:27px}
+.architecture-top>div{border-radius:12px;border:1px solid #dae8dd;background:#fff}
+.architecture-top>div.highlight-arch{background:#d9fdd3;border-color:#abdfb7}
+.box-kicker{color:#008c6a;font-size:10px;letter-spacing:.06em}
+.architecture-top strong{font-size:14px;color:#17362a}
+.architecture-top small{font-size:11px;color:#637f6c}
+.architecture-top>.icon{color:#169b77}
+.architecture-divider{border-color:#dbe9dc;color:#72917d}
+.architecture-outcomes>div{border-color:#dce9df}
+.architecture-outcomes strong{color:#174d33}
+.architecture-outcomes small{color:#6c8973}
+.arch-icon,.arch-icon.warm,.arch-icon.light{background:#d9fdd3;color:#087b5b;border-radius:50%}
+.signal-note{background:#f0faf2;border:1px solid #c7edd0;border-radius:13px}
+.signal-note-icon{background:#d9fdd3;color:#087950;border-radius:50%}
+.signal-note strong{font-size:13px;color:#075e54}
+.signal-note p{font-size:12px;color:#567363}
+.system-bottom{border-color:#e4eee7}
+.system-decision h3{font-family:var(--sans);font-size:clamp(24px,2.5vw,34px);font-weight:750;letter-spacing:-.04em;line-height:1.2}
+.system-decision p{color:#657e6f;line-height:1.7}
+.technical-warning{background:#fff5eb;color:#97531f;border:1px solid #f3dfbe;border-radius:10px}
+.system-guardrails{border-color:#e3eee7}
+.system-guardrails>div{border-color:#e3eee7}
+.system-guardrails>div span{font-family:var(--sans);font-size:12px;font-weight:750;color:#00876c}
+.system-guardrails>div strong{color:#183b29;font-size:13px}
+.system-guardrails>div p{color:#6b8074}
+/* PRD: app panel + accordions */
+.prd-section{background:#f7f9f8}
+.prd-layout{gap:34px}
+.prd-sidebar{background:#fff;border:1px solid #e2eee7;border-radius:13px;padding:22px;height:max-content}
+.prd-meta-title{font-size:13px;letter-spacing:-.02em;color:#075e54;font-weight:800}
+.prd-meta-title span{background:#e4f9e7;color:#075e54;padding:5px 8px;border-radius:20px}
+.prd-info{border-color:#eaf0eb;padding:13px 0}
+.prd-info span{color:#789183;font-size:10px;letter-spacing:.055em}
+.prd-info strong{color:#244433;font-size:12px}
+.prd-aside-note{background:#e9faeb;border-radius:10px;border:0;color:#075e54}
+.prd-aside-note p{color:#456e57}
+.prd-content{background:#fff;border:1px solid #e2eee7;border-radius:13px;padding:24px}
+.prd-block-heading{border-color:#e2eee7;color:#12836a}
+.requirements-row{border-color:#e5eee8}
+.requirement-toggle{color:#213b2e}
+.requirement-toggle span{color:#008a6b}
+.requirement-toggle strong{font-size:13px}
+.requirement-body{color:#5b7766;font-size:12px;line-height:1.7}
+.requirement-body strong{color:#0b6e54}
+.scope-grid>div{border:1px solid #e3eee7;border-radius:11px;background:#fff;padding:19px}
+.scope-grid h4{color:#075e54;font-size:13px}
+.scope-grid li{color:#526b5c;font-size:12px;line-height:1.7}
+/* risks: remove marketing-deck styling */
+.feasibility-grid{gap:15px}
+.feasibility-card{background:#fff;border:1px solid #e1ebe4;border-radius:14px;padding:24px}
+.feasibility-card strong{color:#08785b;font-size:11px}
+.feasibility-card h3{font-family:var(--sans);font-size:19px;line-height:1.22;font-weight:750;letter-spacing:-.03em}
+.feasibility-card p{font-size:12px;color:#6d8274;line-height:1.7}
+.rating-dot.green{background:#25d366}
+.rating-dot.gold{background:#e4b56a}
+.rating-dot.red{background:#f18878}
+.risk-table-wrap{border:1px solid #e2ece5;border-radius:13px;overflow-x:auto;background:#fff}
+.risk-table{border-collapse:collapse;width:100%}
+.risk-table th{background:#f4f8f5;color:#537762;text-transform:none;letter-spacing:0;font-size:11px}
+.risk-table td{font-size:12px;color:#405c4b;line-height:1.55;border-color:#eaf0ec}
+.severity{border-radius:100px}
+/* Measurement */
+.measurement-grid{gap:16px}
+.metric-builder,.metric-guardrails{background:#fff;border:1px solid #e1ece4;border-radius:15px;padding:29px}
+.metric-builder-head{align-items:center}
+.example-badge{border-radius:20px;background:#edf7ef;color:#44765a;border:1px solid #dbece0}
+.metric-builder h3{font-family:var(--sans);font-size:23px;letter-spacing:-.035em;font-weight:750;color:#152e22}
+.metric-builder>p{color:#6c8074;line-height:1.65}
+.slider-row label{font-size:12px;color:#294f36}
+.slider-row label strong{color:#008c6a}
+input[type="range"]{accent-color:#00a884}
+.slider-scale{color:#9ca9a1}
+.result-panels>div{background:#f2f8f3;border-radius:10px;border:1px solid #e5efe8}
+.result-panels>div.reduction-result{background:#075e54;border-color:#075e54}
+.result-panels span{color:#6d8c79}
+.result-panels strong{font-family:var(--sans);font-size:42px;font-weight:750;letter-spacing:-.06em;color:#173f2c}
+.result-panels .reduction-result strong{color:#d9fdd3}
+.metric-bar{background:#e4f0e6}
+.metric-bar>span{background:#25d366}
+.guardrail-primary{border-color:#e5eee7}
+.guardrail-primary strong{font-family:var(--sans);font-size:57px;font-weight:750;color:#078567}
+.guardrail-item{border-color:#e5eee7}
+.guardrail-item .icon{color:#098f70}
+.guardrail-item p{color:#6b8275}
+.research-note{border-color:#dce8dd}
+.research-note p{color:#637b6b}
+.experiment-strip>div{border-color:#d8e8dc}
+.experiment-strip>div span{font-family:var(--sans);font-size:13px;background:#d9fdd3;color:#00805b;border-radius:50%;width:29px;height:29px;display:grid;place-items:center;font-weight:750}
+.experiment-strip>div strong{font-size:13px;color:#20442e}
+.experiment-strip>div small{color:#657b6a}
+.experiment-strip>.icon{color:#11916c}
+/* Closing + sources are part of the same WhatsApp product language */
+.closing-section{background:#075e54;color:#fff;border-radius:0;padding-top:75px;padding-bottom:72px;min-height:auto}
+.closing-label{color:#bdf5d0;letter-spacing:.08em}
+.closing-section h2{font-family:var(--sans);font-size:clamp(38px,4.5vw,64px);font-weight:750;letter-spacing:-.055em;line-height:1.02;max-width:710px;margin:22px 0}
+.closing-section>p{font-size:15px;color:#d1eee1;max-width:670px;line-height:1.65}
+.closing-actions{margin-top:28px}
+.closing-secondary{color:#d9fdd3;border-color:#6ebd92;font-size:12px}
+.closing-watermark{display:none}
+.site-footer{background:#0b332a;color:#e5f5ed;padding:54px 0 24px}
+.footer-top{padding-bottom:38px}
+.footer-top>div:first-child{grid-template-columns:47px 1fr;grid-template-rows:36px auto;column-gap:13px}
+.footer-logo{font-family:var(--sans);font-size:25px;border:1px solid #3c7460;background:#185742;border-radius:50%;width:40px;height:40px;display:grid;place-items:center}
+.footer-logo .icon{height:24px;width:24px}
+.footer-top strong{font-size:15px;color:#e4fbe9}
+.footer-top p{font-size:12px;color:#a6cebd}
+.footer-links{min-width:320px}
+.footer-links strong{font-size:10px;letter-spacing:.07em;color:#a4dac2}
+.footer-links a{font-size:12px;color:#b6d1c2}
+.footer-links a:hover{color:#fff}
+.footer-bottom{border-color:#315647;color:#9dc6b2;font-size:11px}
+.footer-bottom a{color:#d9fdd3}
+.toast{background:#075e54;color:#fff;border-radius:100px;font-size:12px}
+/* Device & interaction adjustments */
+.wa-bubble-tag{font-weight:650;border-radius:100px;background:#edf7ee;color:#416c55}
+.wa-bubble-tag.utility{background:#e0f5e9;color:#088360}
+.wa-bubble-tag.unknown{background:#f0f2f5;color:#63756d}
+/* smaller screens */
+@media(max-width:1250px){.prototype-workspace{grid-template-columns:230px minmax(350px,1.1fr) 230px}}
+@media(max-width:1050px){.site-nav{display:none}.prototype-workspace{grid-template-columns:230px minmax(350px,1fr)}.prototype-inspector{grid-column:1/3;border-top:1px solid #e7efeb;border-left:0;display:grid;grid-template-columns:1fr 1fr;gap:10px 25px}.hero{grid-template-columns:1fr .9fr;gap:20px}.hero h1{font-size:clamp(53px,6vw,70px)}.hero-art{transform:none;margin:0;height:540px}.hero-facts{bottom:12px}.mobile-menu-toggle{display:grid}}
+@media(max-width:760px){
+ .site-header{height:68px;padding:10px 20px}.mobile-menu{top:68px}.wrap{padding-left:20px;padding-right:20px}
+ .hero{display:flex;flex-direction:column;padding-top:44px;padding-bottom:0;gap:26px;min-height:auto}
+ .hero h1{font-size:clamp(52px,11vw,78px);margin:20px 0 18px}
+ .hero-description{max-width:100%;font-size:16px}
+ .hero-actions{margin-top:25px;gap:16px}.hero-highlight{margin-top:24px}
+ .hero-art{width:100%;height:510px;max-width:none;transform:none;margin:0;border-radius:20px}
+ .hero-phone-shell{height:470px;width:280px}
+ .hero-facts{position:static;left:auto;right:auto;bottom:auto;margin:4px 0 0;padding:20px 0 24px;gap:9px}
+ .hero-facts>div{display:flex;flex-direction:column;gap:4px;padding:0 6px 0 0!important;border-left:0!important}
+ .hero-facts span{font-size:17px}.hero-facts strong{font-size:11px}.hero-facts small{font-size:10px;line-height:1.4}
+ .problem-section,.prototype-section,.decisions-section,.system-section,.prd-section,.risk-section,.measurement-section{padding-top:64px;padding-bottom:64px}
+ .section-intro{margin-bottom:27px}.section-intro h2{font-size:clamp(30px,7.5vw,45px)}.section-intro p{font-size:14px;line-height:1.6}
+ .problem-grid,.system-bottom,.measurement-grid,.scope-grid,.feasibility-grid{grid-template-columns:1fr}
+ .problem-card{min-height:unset;padding:25px}.problem-quote{min-height:230px}.problem-message-stack{min-height:290px}
+ .insight-rule{display:block;margin-top:30px}.insight-rule p{margin-top:12px}.insight-rule>span{margin-top:12px}
+ .prototype-workspace{grid-template-columns:1fr;overflow:hidden}.prototype-sidebar{border-right:0;border-bottom:1px solid #e8efeb}.scenario-list{grid-template-columns:1fr 1fr}.prototype-device-column{min-height:740px}.prototype-inspector{grid-column:1;display:block}
+ .prototype-key{grid-template-columns:1fr;gap:14px}.prototype-key>div{padding:4px 0}
+ .decision-row{grid-template-columns:37px 1fr 18px;gap:11px;padding:16px 13px}.decision-type{display:none}.decision-detail{grid-column:2/3}.decision-main h3{font-size:14px}.decision-main p{font-size:11px}
+ .architecture-card{padding:20px}.architecture-top{grid-template-columns:1fr;gap:12px}.architecture-top>.icon{transform:rotate(90deg);justify-self:center}.architecture-outcomes{grid-template-columns:1fr;gap:12px}
+ .prd-layout{grid-template-columns:1fr;gap:20px}.prd-sidebar{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}.prd-meta-title,.prd-aside-note{grid-column:1/3}.prd-content{padding:20px}.scope-grid{gap:12px}
+ .metric-builder,.metric-guardrails{padding:21px}.experiment-strip{grid-template-columns:1fr;gap:12px}.experiment-strip>.icon{transform:rotate(90deg);margin-left:12px}
+ .closing-section{padding-top:63px;padding-bottom:60px;min-height:unset}.closing-section h2{font-size:clamp(43px,9vw,65px)}.closing-section>p{font-size:14px}.footer-top{display:block}.footer-top>div:first-child{margin-bottom:37px}.footer-links{min-width:0}.footer-bottom{flex-direction:column;align-items:start;gap:10px}
+}
+@media(max-width:450px){
+ .hero h1{font-size:52px}.hero-actions .button{width:100%;justify-content:center}.hero-actions .text-link{margin-top:5px}
+ .hero-art{width:100%;margin:0;height:485px}.hero-phone-shell{width:268px;height:447px}.hero-art-caption{bottom:6px;font-size:8px}
+ .hero-facts{grid-template-columns:1fr 1fr 1fr}.hero-facts small{font-size:9px}
+ .scenario-list{grid-template-columns:1fr}.prototype-device-column{padding:23px 4px;min-height:755px}.phone-frame{width:min(350px,97%)}.device-meta{width:92%}
+ .decision-tools{align-items:flex-start;flex-direction:column}.decision-filters{flex-wrap:wrap}.scope-grid{grid-template-columns:1fr}
+ .result-panels strong{font-size:33px}.result-panels>div{padding:10px}.closing-section h2{font-size:44px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}
+
+/* Interactive hero phone controls — same visual language as the WhatsApp mockup. */
+.hero-phone-interactive{overflow:hidden;z-index:2;touch-action:manipulation}
+.hero-phone-interactive button{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.hero-phone-loading{padding:25px;font-size:12px;color:#667781}
+.hero-phone-interactive .hero-phone-search{display:flex;width:calc(100% - 24px);border:0;text-align:left}
+.hero-phone-interactive .hero-filter-strip{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;white-space:nowrap}
+.hero-phone-interactive .hero-filter-strip::-webkit-scrollbar{display:none}
+.hero-phone-interactive .hero-filter-strip button{border:0;border-radius:25px;background:#f0f2f5;color:#667781;font-size:9px;padding:8px 9px;flex-shrink:0;font-weight:600;line-height:1.25}
+.hero-phone-interactive .hero-filter-strip button.hero-pill-active{background:#d9fdd3;color:#075e54}
+.hero-phone-interactive .hero-list{overflow-y:auto;height:calc(100% - 196px);scrollbar-width:thin}
+.hero-phone-interactive .hero-inbox-item{width:100%;display:flex;text-align:left;background:#fff;border:0;border-bottom:1px solid #edf1ef;font-family:Roboto,Arial,sans-serif;cursor:pointer}
+.hero-phone-interactive .hero-inbox-item:hover{background:#f4f8f6}
+.hero-phone-interactive .hero-inbox-item:focus-visible,.hero-phone-interactive button:focus-visible{outline:2px solid #00a884;outline-offset:-2px}
+.hero-phone-interactive .hero-inbox-item>span:nth-child(2){flex:1;display:flex;min-width:0;flex-direction:column;gap:3px}
+.hero-phone-interactive .fake-avatar{width:34px;height:34px;flex-shrink:0}
+.hero-phone-interactive .hero-inbox-item small{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero-phone-interactive .hero-inbox-item time{white-space:nowrap}
+.hero-empty{padding:23px 15px;color:#667781;font-size:11px;text-align:center}
+.hero-thread-header{display:flex;align-items:center;gap:8px;padding:6px 10px 12px;border-bottom:1px solid #e5ebea;font-family:Roboto,Arial,sans-serif;font-size:12px}
+.hero-thread-header button{border:0;background:transparent;color:#244c40;padding:4px;display:flex}
+.hero-thread-header .fake-avatar{width:30px;height:30px}
+.hero-thread-notice{text-align:center;background:#f0f7f2;color:#4a7566;font-size:8px;padding:9px 5px;font-weight:600}
+.hero-thread-body{background:#eeeae3;overflow-y:auto;height:calc(100% - 150px);padding:15px 11px;display:flex;flex-direction:column;gap:9px;scrollbar-width:thin}
+.hero-message{background:#fff;border-radius:8px 8px 8px 2px;max-width:92%;font-family:Roboto,Arial,sans-serif;font-size:10px;line-height:1.55;padding:10px;color:#182a21;box-shadow:0 1px 2px #0000001a}
+.hero-message.hero-outgoing{background:#d9fdd3;align-self:flex-end;border-radius:8px 8px 2px 8px}
+.hero-label{display:block;font-size:8px;font-weight:700;color:#2f7d59;margin-bottom:4px}
+.hero-message small{display:block;text-align:right;font-size:8px;color:#667781;padding-top:4px}
+.hero-open-full{position:absolute;bottom:12px;left:12px;right:12px;width:calc(100% - 24px);padding:10px 8px;border:0;border-radius:7px;background:#d9fdd3;color:#075e54;font-size:10px;font-weight:750;display:flex;justify-content:center;align-items:center;gap:9px}
+.hero-open-full .icon{width:13px;height:13px}
+@media(max-width:450px){.hero-phone-interactive .hero-list{height:calc(100% - 194px)}.hero-phone-interactive .hero-inbox-item{padding:9px 10px}}
+
+</style>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="svg-sprite" aria-hidden="true">
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="m12 19-7-7 7-7M5 12h14"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-check-check" viewBox="0 0 24 24"><path d="m2 12 4 4 7-7M8 12l4 4 10-10"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m18 6-12 12M6 6l12 12"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 7h4l2-2h4l2 2h4v12H4z"/><circle cx="12" cy="13" r="3"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></symbol>
+    <symbol id="i-tag" viewBox="0 0 24 24"><path d="M3 3h8l10 10-8 8L3 11z"/><circle cx="8" cy="8" r="1.3"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M20 11.5a8.5 8.5 0 0 1-8.5 8.5 9 9 0 0 1-4-.9L3 20l1.4-4.3A8.5 8.5 0 1 1 20 11.5Z"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M17 5a3 3 0 0 1 0 6m1 5a5 5 0 0 1 3 4"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="m5 3 4 2-1.5 4c1.8 3.4 3.1 4.7 6.5 6.5L18 14l3 4-2 3C10 22 2 14 3 5z"/></symbol>
+    <symbol id="i-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path d="M20.7 8.4c0 4.9-8.7 10.6-8.7 10.6S3.3 13.3 3.3 8.4A4.6 4.6 0 0 1 12 6.3a4.6 4.6 0 0 1 8.7 2.1Z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2 20 6v5c0 5-3.5 8.7-8 11-4.5-2.3-8-6-8-11V6z"/><path d="m8.7 12 2.2 2.2 4.5-4.5"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 9a6 6 0 0 0-12 0v5l-2 3h16l-2-3zm-8 11h4"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3" fill="currentColor" stroke="none"/><circle cx="16" cy="17" r="3" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M10 2h4l.6 2.6 2 1.2 2.5-.8 2 3.4-1.9 1.9v2.4l1.9 1.9-2 3.4-2.5-.8-2 1.2L14 22h-4l-.6-2.6-2-1.2-2.5.8-2-3.4 1.9-1.9v-2.4L2.9 9.4l2-3.4 2.5.8 2-1.2z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 7V3l-3 3A8 8 0 1 0 20 12M20 3v5h-5"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M13 5h6v6M19 5l-9 9M19 14v5H5V5h5"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m22 2-7 20-4-9-9-4zM22 2 11 13"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><path d="M4 20V4M4 20h16M8 16v-4m5 4V8m5 8V5"/></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 4h7l2 2 2-2h5v16h-7l-2 1-2-1H4zM12 6v15"/></symbol>
+    <symbol id="i-undo" viewBox="0 0 24 24"><path d="M9 7 4 12l5 5M4 12h10a6 6 0 0 1 0 12"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 2 2.5 7.5L22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5z"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7h.01"/></symbol>
+    <symbol id="i-package" viewBox="0 0 24 24"><path d="m12 2 9 5v10l-9 5-9-5V7zm-9 5 9 5 9-5M12 12v10M7 4.5l9 5"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v10h4"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  </svg>
+
+  <div class="reading-progress" id="reading-progress"></div>
+  <header class="site-header">
+    <a class="site-brand" href="#top" aria-label="Back to top"><span class="brand-monogram"><svg class="icon"><use href="#i-message"/></svg></span><span class="brand-name">WhatsApp <small>CASE STUDY</small></span></a>
+    <nav class="site-nav" aria-label="Page sections">
+      <a href="#problem">The problem</a><a href="#prototype">Prototype</a><a href="#decisions">Decisions</a><a href="#system">How it works</a><a href="#prd">PRD</a><a href="#measurement">Impact</a>
+    </nav>
+    <a href="#prototype" class="header-cta">Open prototype <svg class="icon"><use href="#i-arrow-up-right"/></svg></a>
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Open navigation" aria-expanded="false"><svg class="icon"><use href="#i-menu"/></svg></button>
+  </header>
+  <div class="mobile-menu" id="mobile-menu"><a href="#problem">The problem</a><a href="#prototype">Prototype</a><a href="#decisions">Decisions</a><a href="#system">How it works</a><a href="#prd">PRD</a><a href="#measurement">Impact</a></div>
+
+  <main>
+    <section class="hero wrap" id="top">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> INDEPENDENT PRODUCT FEATURE CONCEPT <span class="mini-year">2026</span></div>
+        <h1><span class="hero-whatsapp">WhatsApp</span><br/>Case Study<span class="hero-period">.</span></h1>
+        <p class="hero-description">A Promotions filter for WhatsApp. Marketing messages go into their own tab. Delivery codes, order updates and real conversations stay in Chats.</p>
+        <div class="hero-actions"><a class="button button-dark" href="#prototype">Try the interactive prototype <svg class="icon"><use href="#i-arrow-right"/></svg></a><a class="text-link" href="#problem">Read the case study <span>↓</span></a></div>
+        <div class="hero-micro"><svg class="icon"><use href="#i-info"/></svg> Independent redesign concept, not an official WhatsApp feature</div>
+        <div class="hero-highlight"><span class="hero-highlight-icon"><svg class="icon"><use href="#i-check"/></svg></span><span><strong>One business. Different message types.</strong><small>Move the offer, not the delivery update.</small></span></div>
+      </div>
+      <div class="hero-art" aria-label="WhatsApp interface mockup showing a Promotions filter">
+        <div class="hero-phone-shell hero-phone-interactive" id="hero-phone-live" aria-label="Interactive WhatsApp preview: tap filters and conversations">
+          <div class="hero-phone-top"><span>9:41</span><span>◕ ◕ ▰</span></div>
+          <div class="hero-phone-loading">Loading interactive inbox…</div>
+        </div>
+        <div class="hero-art-caption"><span class="green-light"></span> TAP THE PHONE TO EXPLORE · INTERACTIVE</div>
+      </div>
+      <div class="hero-facts"><div><span>01</span><strong>The problem</strong><small>Promotional messages clutter Chats</small></div><div><span>10</span><strong>Decisions</strong><small>Trade-offs defined</small></div><div><span>03</span><strong>Existing categories</strong><small>Marketing, Utility, Authentication</small></div></div>
+    </section>
+
+    <section class="problem-section" id="problem">
+      <div class="wrap">
+        <div class="section-intro"><div class="eyebrow">01 / THE PROBLEM</div><h2>Promotions and delivery codes shouldn't compete.</h2><p>In India, shopping updates, offers, and ordinary conversations often arrive in the same WhatsApp inbox. Blocking a brand may stop promotions — but it can also interrupt useful updates from that same business.</p></div>
+        <div class="problem-grid">
+          <div class="problem-card problem-quote"><span class="quote-mark"><svg class="icon"><use href="#i-message"/></svg></span><blockquote>“I get 7–10 promotional messages in a day, but I still need to find my Amazon or Flipkart delivery code.”</blockquote><div class="quote-foot">USER PROBLEM · INITIAL OBSERVATION <span>Not yet representative user research</span></div></div>
+          <div class="problem-card problem-message-stack"><div class="stack-title"><svg class="icon"><use href="#i-bell"/></svg> THE SAME INBOX</div><div class="mock-notification"><span class="notif-symbol">%</span><span><strong>AJIO</strong><small>Sale ends tonight. Extra 30% off.</small></span><span class="small-time">now</span></div><div class="mock-notification"><span class="notif-symbol peach">%</span><span><strong>Myntra</strong><small>Your next wardrobe refresh awaits.</small></span><span class="small-time">2m</span></div><div class="mock-notification special"><span class="notif-symbol utility">⌑</span><span><strong>Flipkart</strong><small>Use code 482913 to receive your order.</small></span><span class="small-time">4m</span></div><div class="stack-takeaway"><svg class="icon"><use href="#i-arrow-right"/></svg> Same inbox. Very different urgency.</div></div>
+        </div>
+        <div class="insight-rule"><div class="insight-label">THE CORE INSIGHT</div><p>Classify messages, not businesses.</p><span>A single business can send both an offer and a delivery code.</span></div>
+      </div>
+    </section>
+
+    <section class="prototype-section wrap" id="prototype">
+      <div class="section-intro compact"><div class="eyebrow">02 / INTERACTIVE PROTOTYPE</div><h2>Explore the proposed feature.</h2><p>This is a working interaction model, not a static screenshot. Switch inbox modes, open conversations, send messages, simulate delivery updates, and test settings.</p></div>
+      <div class="prototype-workspace">
+        <div class="prototype-sidebar">
+          <div class="sidebar-heading"><span class="live-indicator"></span> INTERACTIVE WIREFRAME <small>ANDROID-STYLE UI</small></div>
+          <div class="control-group"><label class="control-label">INBOX EXPERIENCE</label><div class="mode-toggle" role="group" aria-label="Inbox experience"><button id="mode-existing" data-mode="existing">Existing inbox</button><button id="mode-smart" data-mode="smart" class="active">With Promotions</button></div><p class="control-hint">Compare the original shared inbox against the proposed filtered experience.</p></div>
+          <div class="control-group"><label class="control-label">EXPLORE A SCENARIO</label><div class="scenario-list" id="scenario-list"><button data-scenario="flood"><span>01</span><strong>Promotional overload</strong><svg class="icon"><use href="#i-arrow-up-right"/></svg></button><button class="active" data-scenario="mixed"><span>02</span><strong>Same business, two intents</strong><svg class="icon"><use href="#i-arrow-up-right"/></svg></button><button data-scenario="reply"><span>03</span><strong>Reply to an offer</strong><svg class="icon"><use href="#i-arrow-up-right"/></svg></button><button data-scenario="unknown"><span>04</span><strong>Unclassified message</strong><svg class="icon"><use href="#i-arrow-up-right"/></svg></button><button data-scenario="cleanup"><span>05</span><strong>Historical cleanup</strong><svg class="icon"><use href="#i-arrow-up-right"/></svg></button></div></div>
+          <div class="control-group simulator-actions"><label class="control-label">SEND A TEST MESSAGE</label><button class="secondary-action" id="simulate-marketing"><span class="action-icon">%</span> Send an Amazon offer <svg class="icon"><use href="#i-arrow-right"/></svg></button><button class="secondary-action" id="simulate-utility"><span class="action-icon parcel"><svg class="icon"><use href="#i-package"/></svg></span> Send a delivery update <svg class="icon"><use href="#i-arrow-right"/></svg></button><button class="secondary-action" id="advance-days"><span class="action-icon parcel"><svg class="icon"><use href="#i-clock"/></svg></span> Simulate 8 days passing <svg class="icon"><use href="#i-arrow-right"/></svg></button><button class="reset-link" id="reset-demo"><svg class="icon"><use href="#i-refresh"/></svg> Reset demonstration</button></div>
+        </div>
+        <div class="prototype-device-column">
+          <div class="device-meta"><span><span class="green-light"></span> INTERACTIVE PROTOTYPE</span><span>SIMULATED DATA / NO REAL MESSAGES</span></div>
+          <div class="phone-frame"><div class="phone-camera"></div><div id="phone-root" class="phone-screen" aria-label="Interactive WhatsApp Promotions feature concept"></div></div>
+          <div class="phone-caption">Tap filter chips, conversation rows, ⋮ settings, or enter a reply. All names and messages are fictional examples.</div>
+        </div>
+        <div class="prototype-inspector">
+          <div class="inspector-eyebrow">WHAT YOU'RE SEEING <span>↗</span></div><h3 id="scenario-title">One sender.<br/>Two different purposes.</h3><p id="scenario-description">Amazon sends both a sale offer and a delivery confirmation. Promotions routes the sale; Chats preserves the delivery update. Opening either shows one original conversation.</p><div class="inspector-divider"></div>
+          <div class="inspector-point"><span class="inspector-dot good"></span><div><strong id="scenario-rule-label">Message-level routing</strong><p id="scenario-rule">The business account isn't permanently labeled as promotional.</p></div></div>
+          <div class="inspector-divider"></div><div class="inspector-eyebrow">LIVE EVENT LOG</div><div id="event-log" class="event-log" aria-live="polite"></div>
+          <button class="inspector-settings" id="open-settings"><svg class="icon"><use href="#i-settings"/></svg> Promotions settings <svg class="icon"><use href="#i-arrow-up-right"/></svg></button>
+        </div>
+      </div>
+      <div class="prototype-key"><div><span class="key-circle green"></span><strong>Utility / Authentication</strong><small>Stay in Chats</small></div><div><span class="key-circle cream"></span><strong>Marketing</strong><small>Automatically goes to Promotions</small></div><div><span class="key-circle gray"></span><strong>Unknown</strong><small>Stays in Chats by default</small></div></div>
+    </section>
+
+    <section class="decisions-section" id="decisions"><div class="wrap"><div class="section-intro compact"><div class="eyebrow">03 / PRODUCT DECISIONS</div><h2>10 product decisions.</h2><p>Every design choice came from a specific product trade-off. Expand a decision to see the reasoning, constraints, and the alternative we deliberately didn't choose.</p></div><div class="decision-tools"><span>DECISION REGISTER / 10 ITEMS</span><div class="decision-filters" role="group" aria-label="Filter decisions"><button class="active" data-dec-filter="all">All</button><button data-dec-filter="experience">Experience</button><button data-dec-filter="platform">Platform</button><button data-dec-filter="rollout">Validation</button></div></div><div id="decision-list" class="decision-list"></div></div></section>
+
+    <section class="system-section wrap" id="system"><div class="section-intro compact"><div class="eyebrow">04 / SYSTEM DESIGN</div><h2>Use existing template categories.</h2><p>Instead of analyzing every private message with AI, the proposed system starts with existing approved business-template categories and a small set of inbox-state rules.</p></div>
+      <div class="architecture-card"><div class="architecture-top"><div><span class="box-kicker">EXISTING</span><strong>Business creates a template</strong><small>Marketing · Utility · Authentication</small></div><svg class="icon"><use href="#i-arrow-right"/></svg><div><span class="box-kicker">EXISTING</span><strong>Meta reviews category</strong><small>Approval and pricing classification</small></div><svg class="icon"><use href="#i-arrow-right"/></svg><div class="highlight-arch"><span class="box-kicker">PROPOSED</span><strong>Consumer inbox routing</strong><small>Message metadata + active conversation state</small></div></div><div class="architecture-divider"><span>INBOX OUTCOMES</span></div><div class="architecture-outcomes"><div><span class="arch-icon"><svg class="icon"><use href="#i-message"/></svg></span><strong>Chats</strong><small>Utility, Authentication, service, personal, unknown</small></div><div><span class="arch-icon warm"><svg class="icon"><use href="#i-tag"/></svg></span><strong>Promotions</strong><small>Approved Marketing template messages</small></div><div><span class="arch-icon light"><svg class="icon"><use href="#i-users"/></svg></span><strong>Active state</strong><small>Reply-triggered conversation; 7-day lifecycle</small></div></div></div>
+      <div class="signal-note"><div class="signal-note-icon"><svg class="icon"><use href="#i-info"/></svg></div><div><strong>Flows and click-to-WhatsApp ads are not message categories.</strong><p>A WhatsApp Flow is an interactive experience; the approved template used to send it may be Marketing or Utility. A customer opening a conversation from an Instagram or Facebook ad is not automatically a Marketing-template message. In the MVP, free-form replies without trustworthy classification stay in Chats.</p></div></div>
+      <div class="system-bottom"><div class="system-decision"><div class="small-section-label">THE CRITICAL SAFETY DECISION</div><h3>Separate delivery updates from discounts.</h3><p>Today, templates containing both utility and promotional material can be classified as Marketing. Our proposal requires Meta to enforce clearer separation before approval. This is a <strong>new policy dependency</strong>, not an existing guaranteed safeguard.</p><span class="technical-warning"><svg class="icon"><use href="#i-info"/></svg> Launch blocker until mixed-template safety is validated.</span></div><div class="system-guardrails"><div><span>01</span><strong>Unknown stays visible</strong><p>No category? No automatic hiding.</p></div><div><span>02</span><strong>One original conversation</strong><p>Inbox views reference messages, never split history.</p></div><div><span>03</span><strong>Marketing doesn't refresh activity</strong><p>Only meaningful interactions reset the 7-day window.</p></div><div><span>04</span><strong>Nothing is deleted</strong><p>Search, access, and cleanup undo remain available.</p></div></div></div>
+    </section>
+
+    <section class="prd-section" id="prd"><div class="wrap"><div class="section-intro compact"><div class="eyebrow">05 / PRODUCT REQUIREMENTS</div><h2>Product requirements.</h2><p>A concise PRD that distinguishes MVP behavior, important dependencies, and what's intentionally out of scope. Tap a requirement to read its acceptance criteria.</p></div><div class="prd-layout"><aside class="prd-sidebar"><div class="prd-meta-title">PRODUCT DOCUMENT <span>V1.0</span></div><div class="prd-info"><span>PRODUCT</span><strong>WhatsApp Consumer</strong></div><div class="prd-info"><span>MARKET</span><strong>India-first</strong></div><div class="prd-info"><span>STATUS</span><strong>Unvalidated concept</strong></div><div class="prd-info"><span>ARCHITECTURE</span><strong>Metadata-first</strong></div><div class="prd-info"><span>PRIMARY KPI</span><strong>Clutter reduction</strong></div><div class="prd-aside-note"><svg class="icon"><use href="#i-shield"/></svg><p>Design safety is a release condition, not a stretch goal.</p></div></aside><div class="prd-content"><div class="prd-block"><div class="prd-block-heading"><span>01 / REQUIREMENTS</span><span>09 FUNCTIONAL REQUIREMENTS</span></div><div id="requirements-list" class="requirements-list"></div></div><div class="prd-block"><div class="prd-block-heading"><span>02 / DELIVERY SCOPE</span></div><div class="scope-grid"><div><h4><svg class="icon"><use href="#i-check"/></svg> MVP includes</h4><ul><li>Promotions filter and clean Chats view</li><li>Automatic template-category routing</li><li>One conversation with two entry points</li><li>Customizable promotional notifications</li><li>7-day active-conversation lifecycle</li><li>Opt-in beta, controlled rollout</li><li>Optional metadata-backed historical cleanup</li></ul></div><div><h4><svg class="icon"><use href="#i-close"/></svg> Not in V1</h4><ul><li>AI content inspection and classification</li><li>SMS categorization</li><li>Blocking or deleting messages</li><li>Personalized offers or recommendations</li><li>Entire business-account labeling</li><li>Automatic sorting of free-form replies</li></ul></div></div></div></div></div></div></section>
+
+    <section class="risk-section wrap" id="risks"><div class="section-intro compact"><div class="eyebrow">06 / TRADE-OFFS & FEASIBILITY</div><h2>Risks and feasibility.</h2><p>The interface can be designed quickly. Production readiness depends on internal message metadata, template-policy enforcement, and a migration path that doesn't surprise users.</p></div><div class="feasibility-grid"><div class="feasibility-card"><span class="rating-dot green"></span><strong>High feasibility</strong><h3>UI and conversation state</h3><p>New filter, message-level views, notification controls, and seven-day active-state logic are standard product engineering patterns.</p></div><div class="feasibility-card"><span class="rating-dot gold"></span><strong>Platform dependency</strong><h3>Consumer metadata access</h3><p>Business categories exist, but category data must be reliably available to the consumer client for routing.</p></div><div class="feasibility-card"><span class="rating-dot red"></span><strong>Release blocker</strong><h3>Mixed-template safety</h3><p>Critical transactional content inside Marketing templates must be prevented or safely handled before broad deployment.</p></div></div><div class="risk-table-wrap"><table class="risk-table"><thead><tr><th>Product risk</th><th>Level</th><th>How the proposal responds</th></tr></thead><tbody><tr><td>Delivery codes hidden by Marketing classification</td><td><span class="severity critical">Critical</span></td><td>Separate templates by policy; audit existing templates; gate rollout on safety results.</td></tr><tr><td>Free-form promotions remain in main Chats</td><td><span class="severity medium">Medium</span></td><td>Accept MVP limitation; quantify residual clutter before expanding scope.</td></tr><tr><td>Users fear conversations have disappeared</td><td><span class="severity high">High</span></td><td>Onboarding explanation, global search, original thread preservation, cleanup undo.</td></tr><tr><td>Business message engagement decreases</td><td><span class="severity high">High</span></td><td>Track read rates, support replies, blocks, and commercial guardrails.</td></tr><tr><td>Cross-device inconsistencies</td><td><span class="severity high">High</span></td><td>Consistent routing semantics and cross-device quality assurance.</td></tr><tr><td>Historical category metadata missing</td><td><span class="severity medium">Medium</span></td><td>Offer cleanup only for messages with trustworthy recoverable metadata.</td></tr></tbody></table></div></section>
+
+    <section class="measurement-section" id="measurement"><div class="wrap"><div class="section-intro compact"><div class="eyebrow">07 / EXPERIMENT & MEASUREMENT</div><h2>How we would measure success.</h2><p>The measure isn't the number of messages moved. It's how much unwanted clutter disappears from Chats — without losing important communication.</p></div><div class="measurement-grid"><div class="metric-builder"><div class="metric-builder-head"><span class="small-section-label">METRIC SANDBOX</span><span class="example-badge">Illustrative inputs only</span></div><h3>Explore the assumptions.</h3><p>Change the assumptions to see the potential reduction in promotions appearing in Chats. These aren't observed research results.</p><div class="slider-row"><label for="daily-range">Promotional messages / day <strong id="daily-number">8</strong></label><input type="range" id="daily-range" min="2" max="20" value="8" /><div class="slider-scale"><span>2</span><span>20</span></div></div><div class="slider-row"><label for="capture-range">Approved Marketing templates <strong id="capture-number">75%</strong></label><input type="range" id="capture-range" min="0" max="100" step="5" value="75" /><div class="slider-scale"><span>0%</span><span>100%</span></div></div><div class="result-panels"><div><span>BEFORE</span><strong id="metric-before">8</strong><small>in Chats / day</small></div><div><span>AFTER</span><strong id="metric-after">2</strong><small>in Chats / day</small></div><div class="reduction-result"><span>LESS CLUTTER</span><strong id="metric-reduction">75%</strong><small>illustrative reduction</small></div></div><div class="metric-bar"><span id="metric-bar-fill"></span></div></div><div class="metric-guardrails"><div class="small-section-label">SUCCESS MEASURES</div><div class="guardrail-primary"><span>PRIMARY KPI</span><strong>≥50%</strong><p>Reduction in unwanted promotional messages appearing in the main Chats inbox vs control.</p></div><div class="guardrail-item"><svg class="icon"><use href="#i-shield"/></svg><div><strong>Critical-message safety</strong><p>No confirmed pilot misroutes; larger statistically adequate validation before scale.</p></div></div><div class="guardrail-item"><svg class="icon"><use href="#i-chart"/></svg><div><strong>Routing correctness</strong><p>Proposed ≥99% correct routing of eligible Marketing template messages.</p></div></div><div class="guardrail-item"><svg class="icon"><use href="#i-heart"/></svg><div><strong>Trust & engagement</strong><p>Inbox satisfaction, feature retention, support replies, business engagement.</p></div></div></div></div><div class="research-note"><strong>Discovery and validation still required</strong><p>Interview 10–15 frequent WhatsApp users about real promotional overload; usability-test both inbox views with mixed-brand messages; then run a privacy-preserving randomized treatment/control experiment. Do not present fictional prototype messages or model inputs as measured outcomes.</p></div><div class="experiment-strip"><div><span>01</span><strong>Opt-in beta</strong><small>Discover safety issues and usability confusion.</small></div><svg class="icon"><use href="#i-arrow-right"/></svg><div><span>02</span><strong>Randomized comparison</strong><small>Measure clutter and guardrails against current inbox.</small></div><svg class="icon"><use href="#i-arrow-right"/></svg><div><span>03</span><strong>Gated rollout</strong><small>Expand only after reliability and trust thresholds hold.</small></div></div></div></section>
+
+    <section class="closing-section wrap"><div class="closing-label">THE PRODUCT PRINCIPLE</div><h2>Less clutter.<br/>Same conversations.</h2><p>Start with business template categories Meta already uses. Keep Utility and Authentication messages visible. Preserve one original thread, even when the message appears in different inbox views.</p><div class="closing-actions"><a class="button button-light" href="#prototype">Try the prototype again <svg class="icon"><use href="#i-arrow-right"/></svg></a><a class="closing-secondary" href="#decisions">Review the 10 decisions</a></div></section>
+  </main>
+  <footer class="site-footer"><div class="wrap"><div class="footer-top"><div><span class="footer-logo"><svg class="icon"><use href="#i-message"/></svg></span><strong>WhatsApp Case Study</strong><p>An independent product case study.<br/>Not a WhatsApp or Meta feature announcement.</p></div><div class="footer-links"><strong>PRIMARY SOURCES</strong><a href="https://faq.whatsapp.com/1470216183498937" target="_blank" rel="noopener noreferrer">WhatsApp Help Center — Lists <svg class="icon"><use href="#i-external"/></svg></a><a href="https://about.fb.com/news/2024/04/whatsapp-chat-filters/" target="_blank" rel="noopener noreferrer">Meta — Chat filters <svg class="icon"><use href="#i-external"/></svg></a><a href="https://www.twilio.com/docs/whatsapp/key-concepts" target="_blank" rel="noopener noreferrer">Twilio — Template categories <svg class="icon"><use href="#i-external"/></svg></a><a href="https://wabetainfo.com/whatsapp-beta-for-android-2-26-20-2-whats-new/" target="_blank" rel="noopener noreferrer">2026 UI reference (beta) <svg class="icon"><use href="#i-external"/></svg></a></div></div><div class="footer-bottom"><span>© 2026 · Independent UX / Product concept</span><span>Unofficial portfolio concept · All demonstration messages are simulated</span><a href="#top">Back to top ↑</a></div></div></footer>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script>
+'use strict';
+const I = name => `<svg class="icon" aria-hidden="true"><use href="#i-${name}"/></svg>`;
+const E = text => String(text ?? '').replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
+const clone = value => JSON.parse(JSON.stringify(value));
+const BASE_THREADS = [
+  {id:'arjun',name:'Arjun',initial:'A',kind:'personal',favorite:true,messages:[{id:'ap1',seq:112,category:'personal',body:'Tickets booked! See you Saturday ✨',from:'business',time:'3:20 PM',unread:true}]},
+  {id:'amazon',name:'Amazon',initial:'a',kind:'business',messages:[
+    {id:'am1',seq:70,category:'marketing',body:'New-season picks under ₹999. Explore today’s offers.',from:'business',time:'11:21 AM',unread:true},
+    {id:'am2',seq:115,category:'utility',body:'Your order is out for delivery today. Delivery verification code: 482913.',from:'business',time:'3:42 PM',unread:true},
+  ]},
+  {id:'flipkart',name:'Flipkart',initial:'f',kind:'business',messages:[{id:'fl1',seq:103,category:'utility',body:'Your package is arriving by 8 PM. Please keep your delivery code ready.',from:'business',time:'1:24 PM',unread:false}]},
+  {id:'myntra',name:'Myntra',initial:'M',kind:'business',messages:[
+    {id:'my1',seq:50,category:'marketing',body:'End of Season Sale is live! Get up to 50% off selected styles.',from:'business',time:'10:12 AM',unread:true},
+    {id:'my2',seq:121,category:'marketing',body:'Your favorite sneakers are back. Shop the festive collection today.',from:'business',time:'4:02 PM',unread:true}
+  ]},
+  {id:'ajio',name:'AJIO',initial:'A',kind:'business',messages:[{id:'aj1',seq:119,category:'marketing',body:'Extra 30% off for you today. The sale ends tonight!',from:'business',time:'3:54 PM',unread:true}]},
+  {id:'zomato',name:'Zomato',initial:'Z',kind:'business',messages:[
+    {id:'zo1',seq:46,category:'utility',body:'Your order was delivered. Enjoy your meal!',from:'business',time:'Yesterday',unread:false},
+    {id:'zo2',seq:118,category:'marketing',body:'Flat ₹150 off your next order. Your weekend cravings are covered.',from:'business',time:'3:51 PM',unread:true}
+  ]},
+  {id:'bigbasket',name:'BigBasket',initial:'b',kind:'business',messages:[{id:'bb1',seq:114,category:'marketing',body:'Weekend offers are here. Fresh deals across groceries.',from:'business',time:'2:50 PM',unread:true}]},
+  {id:'sana',name:'Sana',initial:'S',kind:'personal',favorite:true,messages:[{id:'sa1',seq:108,category:'personal',body:'Sharing the pictures in a bit!',from:'business',time:'2:16 PM',unread:false}]},
+  {id:'weekend',name:'Weekend Plans',initial:'W',kind:'group',messages:[{id:'we1',seq:113,category:'personal',body:'Rahul: Saturday morning works for everyone?',from:'business',time:'2:31 PM',unread:true}]},
+  {id:'family',name:'Family',initial:'F',kind:'group',favorite:true,messages:[{id:'fa1',seq:74,category:'personal',body:'Mom: Reach home safely ❤️',from:'business',time:'Yesterday',unread:false}]},
+  {id:'quickmart',name:'QuickMart Support',initial:'Q',kind:'business',messages:[{id:'qm1',seq:97,category:'unknown',body:'Hi! Thanks for messaging us. Would you like help finding a product?',from:'business',time:'12:14 PM',unread:false}]},
+  {id:'uc',name:'Urban Company',initial:'U',kind:'business',messages:[{id:'uc1',seq:100,category:'utility',body:'Your professional is scheduled to arrive between 5–6 PM.',from:'business',time:'12:55 PM',unread:false}]},
+  {id:'meesho',name:'Meesho',initial:'m',kind:'business',messages:[{id:'me1',seq:9,category:'marketing',body:'Old festive offer: save big on fashion today.',from:'business',time:'Oct 12',unread:false,historic:true}]},
+];
+const scenarioData={
+  flood:{title:'A quieter inbox.<br/>Without losing messages.',description:'Marketing offers from Myntra, AJIO, Zomato and BigBasket move into Promotions. Chats stays focused on people, delivery updates and support.',label:'Automatic, metadata-first',rule:'Only approved Marketing templates are redirected. No manual sorting or AI content scanning required.'},
+  mixed:{title:'One sender.<br/>Two different purposes.',description:'Amazon sends both a sale offer and a delivery confirmation. The offer goes to Promotions; the delivery code stays in Chats. Both remain in the same original conversation.',label:'Message-level routing',rule:'We categorize individual messages, not the whole business account.'},
+  reply:{title:'When a promotion<br/>becomes a conversation.',description:'Reply to a Myntra offer using the input below. The conversation enters Chats for seven days following meaningful interaction, while future Marketing templates remain promotional.',label:'User intent takes priority',rule:'Marketing messages never reset the seven-day active-conversation window.'},
+  unknown:{title:'No label?<br/>Don’t hide it.',description:'Click-to-WhatsApp ads and free-form service replies may not carry approved template metadata. In Version 1, those messages remain in Chats.',label:'Safety over aggressive filtering',rule:'This sacrifices perfect clutter removal to reduce the risk of hiding important messages.'},
+  cleanup:{title:'Past conversations<br/>stay in your control.',description:'New Marketing templates are sorted automatically. Older promotions can be reviewed and cleaned only when trustworthy historical category information exists.',label:'Reversible migration',rule:'Cleanup is optional, previewable and reversible; original conversation history remains intact.'}
+};
+const decisions=[
+ {n:'01',title:'A cleaner main inbox',subtitle:'Automatically separate Marketing templates from Chats.',category:'experience',tag:'Inbox architecture',why:'Users should not have to manually organize dozens of offers. A new tab alone would not solve clutter if promotional messages continued to bump the main inbox.',tradeoff:'A comprehensive All view would preserve familiar behavior, but leave the underlying clutter problem unresolved. The concept renames the primary default to Chats.'},
+ {n:'02',title:'One conversation, two inbox views',subtitle:'A business can appear in both, based on message purpose.',category:'experience',tag:'Conversation model',why:'A single sender can send a discount and a delivery code. Both messages remain in the original thread, but separate views reference relevant messages.',tradeoff:'Users may see the same sender in both filters. Contextual jumping and consistent thread history help prevent confusion.'},
+ {n:'03',title:'Notification controls, not notification chaos',subtitle:'Silent, daily digest, or individual marketing alerts.',category:'experience',tag:'Notifications',why:'Promotions are not always unwanted; some users value them. The proposal uses silent as an initial default and makes the other options available in settings.',tradeoff:'A setup wizard with three decisions adds onboarding friction, so notification customization is available after enabling the feature.'},
+ {n:'04',title:'Gradual rollout',subtitle:'Opt-in beta → controlled test → eligible wider rollout.',category:'rollout',tag:'Go to market',why:'User trust must be measured before changing familiar inbox behavior. Controlled testing helps establish the real impact beyond self-selected beta participants.',tradeoff:'Opt-in feedback is biased toward people frustrated by clutter; a randomized experiment is required before generalization.'},
+ {n:'05',title:'Separate mixed-purpose templates',subtitle:'Require promotional and transactional content to be sent separately.',category:'platform',tag:'Safety dependency',why:'Mixed content can be classed as Marketing. The chosen platform-side policy requires businesses to split critical transactional information from promotions.',tradeoff:'This needs stricter approval enforcement and auditing by Meta; it is not a consumer-side feature we can assume already exists.'},
+ {n:'06',title:'Unknown messages stay in Chats',subtitle:'Only approved Marketing templates qualify for auto-routing.',category:'platform',tag:'Fallback policy',why:'Free-form service messages and some business messaging flows lack a usable template category. The safest MVP default is to leave them visible.',tradeoff:'Some marketing remains in Chats. That residual clutter becomes a tracked metric, not a reason to classify entire business accounts.'},
+ {n:'07',title:'New messages first, old messages by choice',subtitle:'Optional historical cleanup with preview and undo.',category:'experience',tag:'Migration',why:'A sudden reorganization of years of chat history would be disorienting. New messages route automatically; eligible old messages are a separate opt-in cleanup.',tradeoff:'Historical cleanup is conditional on reliable older category metadata, which may not be retained.'},
+ {n:'08',title:'A reply creates an active conversation',subtitle:'Replying to an offer makes the business accessible in Chats.',category:'experience',tag:'Intent change',why:'The user is no longer passively receiving a promotion. They have a real product, purchase or service question and need to see the response.',tradeoff:'This state must be temporary; otherwise engaged brands can permanently reclaim the main inbox.'},
+ {n:'09',title:'Seven days of active state',subtitle:'Meaningful interactions reset the timer; marketing never does.',category:'platform',tag:'Lifecycle',why:'A week allows for product follow-ups and customer support without turning a temporary exchange into permanent promotion visibility.',tradeoff:'Seven days is a hypothesis to validate. The 24-hour Business Platform service window is a different rule and should not determine this consumer UX.'},
+ {n:'10',title:'Measure clutter, not message movement',subtitle:'Primary KPI: fewer unwanted promotions in Chats.',category:'rollout',tag:'Measurement',why:'Technical routing accuracy alone does not prove a better experience. The product must measurably reduce interruptions while preserving access to critical messages.',tradeoff:'A strong clutter metric cannot excuse a single serious safety failure. Critical-message routing is a strict guardrail.'}
+];
+const requirements=[
+ ['FR-01','Automatic routing','Approved Marketing templates appear in Promotions. Utility, Authentication and unknown messages appear in Chats.','Acceptance: a categorized Marketing template does not appear as a new main-Chats activity; an uncategorized message does.'],
+ ['FR-02','Unified conversation','Inbox views are projections of one underlying conversation with complete chronological history.','Acceptance: opening an Amazon item from either view shows the same thread with all original messages and context.'],
+ ['FR-03','Inbox ordering','Marketing must not reorder, re-preview or create a main Chats unread indicator for a business.','Acceptance: a fresh offer can update Promotions without bumping that business in Chats.'],
+ ['FR-04','Notification controls','Silent, daily digest and individual marketing notifications are user-configurable.','Acceptance: marketing notification settings do not suppress ordinary delivery and verification updates.'],
+ ['FR-05','Seven-day active state','A user reply or meaningful service interaction makes the business active in Chats for seven days.','Acceptance: Marketing does not reset the timer; conversation history remains accessible after expiry.'],
+ ['FR-06','Historical cleanup','Opt-in cleanup only on historic templates with trustworthy category metadata; preview and undo included.','Acceptance: no messages are deleted; cleanup can be reversed without data loss.'],
+ ['FR-07','Mixed-template policy','Require separate promotional and critical transactional templates before approval.','Acceptance: approved eligible templates must pass safety audits; this is a new platform-side dependency.'],
+ ['FR-08','Search and access','Global search finds messages across Chats and Promotions and opens the original conversation.','Acceptance: searching a phrase inside a promotion returns that business even when Chats is selected.'],
+ ['FR-09','User education','Explain the feature and allow opt-in beta, preference changes and recovery paths.','Acceptance: testing confirms users can find promotional content and understand it has not been deleted.']
+];
+const defaultState=()=>({mode:'smart',filter:'Chats',scenario:'mixed',opened:'amazon',context:'Chats',screen:'inbox',search:'',notify:'silent',cleanup:false,cleanupPreview:false,dayOffset:0,activeUntil:{},threads:clone(BASE_THREADS),seq:130,logs:['Opened Amazon: Utility and Marketing share a thread.','Promotions is enabled.']});
+let state=defaultState();
+const phoneRoot=document.getElementById('phone-root');
+
+// The hero phone is a functioning, lightweight companion to the full prototype.
+// It is intentionally not a static screenshot: filters, chats and back navigation work.
+const heroPhone=document.getElementById('hero-phone-live');
+let heroTab='Promotions';
+let heroOpened=null;
+function heroMessages(chat){
+  const all=chat.messages;
+  const relevant=heroTab==='Promotions'?all.filter(isPromotion):heroTab==='Chats'?all.filter(isInChats):heroTab==='Unread'?all.filter(m=>m.unread):heroTab==='Favorites'?(chat.favorite?all:[]):heroTab==='Groups'?(chat.kind==='group'?all:[]):all;
+  return sorted(relevant);
+}
+function renderHeroPreview(){
+ if(!heroPhone)return;
+ const nav=`<div class="hero-bottom-nav"><span class="selected">${I('message')}<small>Chats</small></span><span>${I('circle')}<small>Updates</small></span><span>${I('users')}<small>Communities</small></span><span>${I('phone')}<small>Calls</small></span></div>`;
+ if(heroOpened){
+   const chat=state.threads.find(t=>t.id===heroOpened);
+   if(!chat){heroOpened=null;return renderHeroPreview()}
+   heroPhone.innerHTML=`<div class="hero-phone-top"><span>9:41</span><span>◕ ◕ ▰</span></div><div class="hero-thread-header"><button type="button" data-hero-back aria-label="Back to ${E(heroTab)}">${I('arrow-left')}</button><span class="fake-avatar ${chat.id==='myntra'?'pink':chat.id==='zomato'?'orange':chat.id==='bigbasket'?'blue':'dark'}">${E(chat.initial)}</span><strong>${E(chat.name)}</strong></div><div class="hero-thread-notice">Original conversation · both message types stay together</div><div class="hero-thread-body">${chat.messages.slice().sort((a,b)=>a.seq-b.seq).map(m=>`<div class="hero-message ${m.from==='self'?'hero-outgoing':''}"><span class="hero-label">${E(m.category==='marketing'?'Marketing':m.category==='utility'?'Utility':m.category==='authentication'?'Authentication':m.category==='unknown'?'Unclassified':'Message')}</span>${E(m.body)}<small>${E(m.time)}</small></div>`).join('')}</div><button class="hero-open-full" type="button" data-hero-full>Open full interactive demo ${I('arrow-right')}</button>`;
+   return;
+ }
+ const tabs=['Chats','Unread','Favorites','Groups','Promotions'];
+ const rows=state.threads.map(chat=>({chat,messages:heroMessages(chat)})).filter(r=>r.messages.length).sort((a,b)=>b.messages[0].seq-a.messages[0].seq).slice(0,5);
+ heroPhone.innerHTML=`<div class="hero-phone-top"><span>9:41</span><span>◕ ◕ ▰</span></div><div class="hero-phone-title"><strong>WhatsApp</strong><span>${I('camera')}${I('more')}</span></div><button type="button" class="hero-phone-search" data-hero-full aria-label="Open the full interactive demo to search messages"><span class="meta-orb"></span> Ask Meta AI or Search</button><div class="hero-filter-strip" role="tablist" aria-label="Interactive sample inbox filters">${tabs.map(t=>`<button type="button" role="tab" aria-selected="${heroTab===t}" data-hero-tab="${t}" class="${heroTab===t?'hero-pill-active':''}">${t}</button>`).join('')}</div><div class="hero-list" aria-live="polite">${rows.map(({chat,messages})=>`<button type="button" class="hero-inbox-item" data-hero-chat="${E(chat.id)}" aria-label="Open ${E(chat.name)} conversation"><span class="fake-avatar ${chat.id==='myntra'?'pink':chat.id==='zomato'?'orange':chat.id==='bigbasket'?'blue':'dark'}">${E(chat.initial)}</span><span><strong>${E(chat.name)}</strong><small>${E(messages[0].body)}</small></span><time>${E(messages[0].time)}</time></button>`).join('')||'<div class="hero-empty">No messages in this view.</div>'}</div>${nav}`;
+}
+if(heroPhone){heroPhone.addEventListener('click',event=>{
+ const tab=event.target.closest('[data-hero-tab]');
+ if(tab){heroTab=tab.dataset.heroTab;heroOpened=null;renderHeroPreview();return}
+ const chat=event.target.closest('[data-hero-chat]');
+ if(chat){heroOpened=chat.dataset.heroChat;renderHeroPreview();return}
+ if(event.target.closest('[data-hero-back]')){heroOpened=null;renderHeroPreview();return}
+ if(event.target.closest('[data-hero-full]')){
+   state.mode='smart';state.filter=heroTab;state.opened=heroOpened;state.context=heroTab;state.search='';state.screen='inbox';
+   renderPhone();document.getElementById('prototype')?.scrollIntoView({behavior:'smooth',block:'start'});
+ }
+})}
+
+let toastTimer=0;
+const badgeName=msg=>msg.category==='marketing'?'Marketing':msg.category==='utility'?'Utility':msg.category==='authentication'?'Authentication':msg.category==='unknown'?'Unclassified':null;
+const isPromotion=msg=>msg.category==='marketing'&&(!msg.historic||state.cleanup);
+const isInChats=msg=>!isPromotion(msg);
+const sorted=arr=>arr.slice().sort((a,b)=>b.seq-a.seq);
+const isActive=chat=>typeof state.activeUntil[chat.id]==='number'&&state.activeUntil[chat.id]>state.dayOffset;
+const filteredMessages=(chat,tab)=>{
+ if(state.search.trim()) return sorted(chat.messages.filter(m=>(m.body+' '+chat.name).toLowerCase().includes(state.search.toLowerCase().trim())));
+ if(state.mode==='existing')return sorted(chat.messages);
+ return sorted(chat.messages.filter(m=>tab==='Promotions'?isPromotion(m):isInChats(m)));
+};
+function inboxRows(){
+ const filter=state.mode==='existing'&&state.filter==='Chats'?'All':state.filter;
+ let rows=state.threads.map(chat=>{
+  const messages=filteredMessages(chat,filter);
+  if(!messages.length)return null;
+  if(!state.search){
+   if(filter==='Favorites'&&!chat.favorite)return null;
+   if(filter==='Groups'&&chat.kind!=='group')return null;
+   if(filter==='Unread'&&!messages.some(m=>m.unread))return null;
+  }
+  return {chat,preview:messages[0],rank:messages[0].seq,unread:messages.filter(m=>m.unread).length};
+ }).filter(Boolean);
+ return rows.sort((a,b)=>b.rank-a.rank);
+}
+function avatar(chat){return `<span class="wa-avatar ${E(chat.id)}">${E(chat.initial)}</span>`}
+function statbar(){return `<div class="wa-status"><span>9:41</span><span class="wa-status-right">▮▮▮ ▰ ●</span></div>`}
+function bottomNav(){return `<div class="wa-bottom-nav"><div class="wa-nav-item active"><span class="wa-nav-icon">${I('message')}</span><span>Chats</span></div><div class="wa-nav-item"><span class="wa-nav-icon">${I('circle')}</span><span>Updates</span></div><div class="wa-nav-item"><span class="wa-nav-icon">${I('users')}</span><span>Communities</span></div><div class="wa-nav-item"><span class="wa-nav-icon">${I('phone')}</span><span>Calls</span></div></div>`}
+function renderInbox(){
+ const tabs=state.mode==='existing'?['All','Unread','Favorites','Groups']:['Chats','Unread','Favorites','Groups','Promotions'];
+ const actualTab=state.mode==='existing'&&state.filter==='Chats'?'All':state.filter;
+ const rows=inboxRows();
+ const items=rows.length?rows.map(({chat,preview,unread})=>`<button class="wa-chat-row" data-chat="${E(chat.id)}" data-context="${E(actualTab)}" aria-label="Open ${E(chat.name)} conversation"><span>${avatar(chat)}</span><div class="wa-row-content"><div class="wa-row-top"><span class="wa-chat-name">${E(chat.name)}</span><span class="wa-time ${unread?'unread-time':''}">${E(preview.time)}</span></div><div class="wa-row-bottom"><span class="wa-preview">${preview.from==='self'?'You: ':''}${E(preview.body)}</span>${unread?`<span class="wa-count">${unread}</span>`:''}</div></div></button>`).join(''):`<div class="wa-empty">${I('message')}<strong>Nothing here yet</strong><p>${state.search?'Try searching another name or message.':actualTab==='Promotions'?'Approved Marketing templates will appear here.':'This view has no matching messages.'}</p></div>`;
+ return `${statbar()}<div class="wa-topbar"><h3>WhatsApp</h3><div class="wa-top-actions"><button class="wa-icon-button" data-action="camera" aria-label="Camera concept note">${I('camera')}</button><button class="wa-icon-button" data-action="settings" aria-label="Promotions settings">${I('more')}</button></div></div><div class="wa-search-box"><span class="meta-orb"></span><input aria-label="Search across all messages" data-search type="search" placeholder="Ask Meta AI or Search" value="${E(state.search)}"/></div><div class="wa-filters" role="tablist" aria-label="WhatsApp inbox filters">${tabs.map(t=>`<button class="wa-filter ${t===actualTab?'active':''}" data-filter="${t}" role="tab" aria-selected="${t===actualTab}">${t==='Promotions'?I('tag'):''}${t}</button>`).join('')}</div>${state.search?`<div class="wa-search-result-banner">Search across all conversations · ${rows.length} result${rows.length!==1?'s':''}</div>`:''}<div class="wa-list-wrap"><div class="wa-list-headline"><span>${state.search?'Search results':actualTab==='Promotions'?'Promotional conversations':state.mode==='existing'?'All your conversations':'Your conversations'}</span><strong>${actualTab==='Promotions'?'Offers only':''}</strong></div>${items}${!state.search&&!rows.length?'':`<div class="wa-footer-note">${I('lock')} All demo messages are simulated</div>`}</div><span class="wa-floating-new">${I('message')}</span>${bottomNav()}`;
+}
+function renderThread(){
+ const chat=state.threads.find(c=>c.id===state.opened);if(!chat){state.opened=null;return renderInbox()}
+ const messages=chat.messages.slice().sort((a,b)=>a.seq-b.seq);
+ let highlightId=null;
+ if(state.context==='Promotions')highlightId=sorted(chat.messages.filter(isPromotion))[0]?.id;
+ else if(state.context==='Chats')highlightId=sorted(chat.messages.filter(isInChats))[0]?.id;
+ return `${statbar()}<div class="wa-thread"><div class="wa-thread-head"><button class="wa-icon-button" data-action="back" aria-label="Back to inbox">${I('arrow-left')}</button>${avatar(chat)}<div class="wa-thread-identity"><strong>${E(chat.name)}</strong><small>${chat.kind==='business'?'Business account':chat.kind==='group'?'Group chat':'Personal chat'}</small></div><button class="wa-icon-button" data-action="voice-note" aria-label="Calling not included">${I('phone')}</button><button class="wa-icon-button" data-action="settings" aria-label="Settings">${I('more')}</button></div><div class="wa-thread-context">${I('lock')} Original conversation · ${E(state.context)} entry point ${isActive(chat)?'· Active 7-day state':''}</div><div class="wa-messages"><div class="wa-day">TODAY · SIMULATED MESSAGES</div>${messages.map(m=>`<div class="wa-bubble ${m.from==='self'?'outgoing':'incoming'} ${m.id===highlightId?'highlight':''}">${badgeName(m)?`<span class="wa-bubble-tag ${m.category==='utility'||m.category==='authentication'?'utility':m.category==='unknown'?'unknown':''}">${E(badgeName(m))} template${m.category==='unknown'?' category':''}</span>`:''}${E(m.body)}<span class="wa-bubble-meta">${E(m.time)} ${m.from==='self'?I('check-check'):''}</span></div>`).join('')}</div><form class="wa-reply-row" id="reply-form"><input id="reply-input" aria-label="Write a reply" type="text" placeholder="Message" maxlength="230" autocomplete="off"/><button type="submit" aria-label="Send message">${I('send')}</button></form></div>`;
+}
+function renderSettings(){return `${statbar()}<div class="wa-topbar"><div style="display:flex;gap:8px;align-items:center"><button class="wa-icon-button" data-action="back-settings" aria-label="Back">${I('arrow-left')}</button><h3 style="font-size:18px;color:#24332a;letter-spacing:-.04em">Promotions settings</h3></div></div><div class="wa-setting-content"><div class="wa-setting-heading"><h4>A quieter inbox, your way.</h4><p>Marketing templates are organized automatically. Change how often they can notify you.</p></div><div class="wa-setting-block"><strong>Promotional notifications</strong><p>Delivery updates and verification messages are unaffected.</p>${[['silent','Silent by default','No individual marketing push alerts'],['digest','Daily digest','One summary of offers per day'],['individual','Every promotion','Notify when each marketing template arrives']].map(([key,title,sub])=>`<button class="wa-setting-option ${state.notify===key?'selected':''}" data-notify="${key}"><span>${title}<small>${sub}</small></span>${state.notify===key?I('check'):''}</button>`).join('')}</div><div class="wa-setting-block"><strong>Older promotional messages</strong><p>Optional cleanup only when the original template category can be reliably verified.</p>${state.cleanup?`<button class="wa-cleanup-action undo" data-action="undo-cleanup">Undo historical cleanup</button><div class="wa-setting-note">Older eligible messages are now organized. Nothing was deleted.</div>`:state.cleanupPreview?`<div class="wa-setting-note"><b>Preview:</b> 1 older Meesho promotional message can be moved to Promotions. Other history stays untouched.</div><button class="wa-cleanup-action" data-action="confirm-cleanup">Organize 1 eligible message</button> <button class="wa-cleanup-action undo" data-action="cancel-cleanup">Cancel</button>`:`<button class="wa-cleanup-action" data-action="review-cleanup">Review eligible old messages</button>`}</div><div class="wa-setting-block"><strong>What's considered a promotion?</strong><p>Approved Marketing templates. Free-form and unknown-category business messages stay in Chats.</p><div class="wa-setting-note">Concept only. This is a simulated interface and does not connect to your actual WhatsApp account.</div></div></div>${bottomNav()}`}
+function renderPhone(){
+ phoneRoot.innerHTML=state.screen==='settings'?renderSettings():state.opened?renderThread():renderInbox();
+ renderHeroPreview();
+ if(state.opened){const box=phoneRoot.querySelector('.wa-messages');if(box)box.scrollTop=box.scrollHeight}
+ updateOutside();
+}
+function updateOutside(){
+ document.querySelectorAll('[data-mode]').forEach(btn=>btn.classList.toggle('active',btn.dataset.mode===state.mode));
+ document.querySelectorAll('[data-scenario]').forEach(btn=>btn.classList.toggle('active',btn.dataset.scenario===state.scenario));
+ const data=scenarioData[state.scenario];document.getElementById('scenario-title').innerHTML=data.title;document.getElementById('scenario-description').textContent=data.description;document.getElementById('scenario-rule-label').textContent=data.label;document.getElementById('scenario-rule').textContent=data.rule;
+ document.getElementById('event-log').innerHTML=state.logs.slice(0,4).map(t=>`<div class="event-row">${E(t)}</div>`).join('');
+}
+function record(text){state.logs.unshift(text);state.logs=state.logs.slice(0,8)}
+function toast(text){const el=document.getElementById('toast');el.textContent=text;el.classList.add('visible');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('visible'),2600)}
+function switchMode(mode){state.mode=mode;state.opened=null;state.screen='inbox';state.filter=mode==='existing'?'All':'Chats';state.search='';record(mode==='smart'?'Enabled the proposed Promotions inbox.':'Switched to the existing combined inbox.');renderPhone();toast(mode==='smart'?'Promotions inbox enabled':'Existing WhatsApp-style inbox view')}
+function setScenario(key){state.scenario=key;state.mode='smart';state.search='';state.opened=null;state.screen='inbox';state.filter='Chats';if(key==='flood')state.filter='Promotions';if(key==='mixed'){state.opened='amazon';state.context='Chats'}if(key==='reply'){state.opened='myntra';state.context='Promotions'}if(key==='unknown'){state.opened='quickmart';state.context='Chats'}if(key==='cleanup'){state.screen='settings';state.cleanupPreview=false}record(`Scenario selected: ${key.replace(/-/g,' ')}.`);renderPhone()}
+function addMessage(id,category,body,from='business'){
+ const chat=state.threads.find(t=>t.id===id);if(!chat)return;
+ const msg={id:`dynamic${++state.seq}`,seq:state.seq,category,body,from,time:'now',unread:from!=='self'};
+ chat.messages.push(msg);return msg;
+}
+function sendDemo(category){
+ if(category==='marketing'){addMessage('amazon','marketing','A new limited-time deal is here. Save 40% on selected essentials.');state.filter=state.mode==='smart'?'Promotions':'All';record('Amazon Marketing template → Promotions.');toast('Amazon marketing message sent to Promotions')}
+ else{addMessage('amazon','utility','Delivery update: your package is arriving today. Your verification code is 683204.');state.filter=state.mode==='smart'?'Chats':'All';record('Amazon Utility template → Chats.');toast('Amazon delivery update preserved in Chats')}
+ state.screen='inbox';state.opened=null;state.search='';renderPhone();
+}
+function openChat(id,context){state.opened=id;state.context=context;state.screen='inbox';state.search='';const chat=state.threads.find(t=>t.id===id);if(chat)chat.messages.forEach(m=>m.unread=false);record(`Opened ${chat?.name||id} from ${context}.`);renderPhone()}
+function replyToChat(body){const chat=state.threads.find(t=>t.id===state.opened);if(!chat||!body.trim())return;addMessage(chat.id,'service',body.trim(),'self');state.activeUntil[chat.id]=state.dayOffset+7;state.context='Chats';record(`Replied to ${chat.name}: active in Chats for seven days.`);renderPhone();toast(`${chat.name} is now active in Chats for 7 days`)}
+phoneRoot.addEventListener('click',event=>{
+ const btn=event.target.closest('button');if(!btn)return;
+ if(btn.dataset.filter){state.filter=btn.dataset.filter;state.opened=null;state.search='';state.screen='inbox';record(`Opened ${state.filter} filter.`);renderPhone();return}
+ if(btn.dataset.chat){openChat(btn.dataset.chat,btn.dataset.context);return}
+ if(btn.dataset.notify){state.notify=btn.dataset.notify;record(`Promotional notifications: ${state.notify}.`);renderPhone();toast('Notification preference updated');return}
+ const a=btn.dataset.action;if(!a)return;
+ if(a==='settings'){state.screen='settings';state.opened=null;renderPhone()}
+ if(a==='back'){state.opened=null;state.search='';renderPhone()}
+ if(a==='back-settings'){state.screen='inbox';state.opened=null;renderPhone()}
+ if(a==='camera'||a==='voice-note')toast('This case study focuses on business-message routing and inbox organization.')
+ if(a==='review-cleanup'){state.cleanupPreview=true;renderPhone()}
+ if(a==='cancel-cleanup'){state.cleanupPreview=false;renderPhone()}
+ if(a==='confirm-cleanup'){state.cleanup=true;state.cleanupPreview=false;record('Historical message cleanup applied. 1 eligible message rerouted.');renderPhone();toast('Older eligible promotion organized · Undo available')}
+ if(a==='undo-cleanup'){state.cleanup=false;record('Historical cleanup undone. No message was deleted.');renderPhone();toast('Historical cleanup undone')}
+});
+phoneRoot.addEventListener('submit',event=>{if(event.target.id==='reply-form'){event.preventDefault();const text=phoneRoot.querySelector('#reply-input')?.value;replyToChat(text||'')}});
+phoneRoot.addEventListener('input',event=>{if(event.target.matches('[data-search]')){const value=event.target.value;const caret=event.target.selectionStart;state.search=value;renderPhone();const target=phoneRoot.querySelector('[data-search]');target?.focus();try{target?.setSelectionRange(caret,caret)}catch(e){}}});
+document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>switchMode(b.dataset.mode)));
+document.querySelectorAll('[data-scenario]').forEach(b=>b.addEventListener('click',()=>setScenario(b.dataset.scenario)));
+document.getElementById('simulate-marketing').addEventListener('click',()=>sendDemo('marketing'));
+document.getElementById('simulate-utility').addEventListener('click',()=>sendDemo('utility'));
+document.getElementById('advance-days').addEventListener('click',()=>{state.dayOffset+=8;record('Advanced demo time by 8 days; active windows expire.');renderPhone();toast('Eight days simulated · Active window expired')});
+document.getElementById('reset-demo').addEventListener('click',()=>{state=defaultState();renderPhone();toast('Demo reset to original sample messages')});
+document.getElementById('open-settings').addEventListener('click',()=>{state.opened=null;state.screen='settings';renderPhone();document.getElementById('prototype').scrollIntoView({behavior:'smooth'});});
+
+const list=document.getElementById('decision-list');
+let decisionFilter='all';let expandedDecision=null;
+function renderDecisions(){
+ const rows=decisions.filter(d=>decisionFilter==='all'||d.category===decisionFilter);
+ list.innerHTML=rows.map(d=>`<div class="decision-row" role="button" tabindex="0" data-decision="${d.n}" aria-expanded="${expandedDecision===d.n}"><span class="decision-num">${d.n}</span><div class="decision-main"><h3>${E(d.title)}</h3><p>${E(d.subtitle)}</p></div><span class="decision-type">${E(d.tag)}</span>${I('chevron-down').replace('class="icon"','class="icon decision-expand"')}<div class="decision-detail"><strong>Why this was selected</strong><p>${E(d.why)}</p><strong>Trade-off / unresolved question</strong><p>${E(d.tradeoff)}</p></div></div>`).join('');
+}
+list.addEventListener('click',e=>{const row=e.target.closest('[data-decision]');if(row){expandedDecision=expandedDecision===row.dataset.decision?null:row.dataset.decision;renderDecisions()}});
+list.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target.matches('[data-decision]')){e.preventDefault();expandedDecision=expandedDecision===e.target.dataset.decision?null:e.target.dataset.decision;renderDecisions()}});
+document.querySelectorAll('[data-dec-filter]').forEach(btn=>btn.addEventListener('click',()=>{decisionFilter=btn.dataset.decFilter;expandedDecision=null;document.querySelectorAll('[data-dec-filter]').forEach(b=>b.classList.toggle('active',b===btn));renderDecisions()}));
+const reqRoot=document.getElementById('requirements-list');
+let expandedReq='FR-01';
+function renderRequirements(){reqRoot.innerHTML=requirements.map(([code,title,desc,accept])=>`<div class="requirements-row ${expandedReq===code?'open':''}"><button class="requirement-toggle" data-req="${code}" aria-expanded="${expandedReq===code}"><span>${code}</span><strong>${E(title)}</strong>${I('chevron-down')}</button><div class="requirement-body">${E(desc)}<br/><strong>${E(accept)}</strong></div></div>`).join('')}
+reqRoot.addEventListener('click',e=>{const btn=e.target.closest('[data-req]');if(btn){expandedReq=expandedReq===btn.dataset.req?null:btn.dataset.req;renderRequirements()}});
+function renderMetrics(){const daily=Number(document.getElementById('daily-range').value),capture=Number(document.getElementById('capture-range').value);const after=daily*(1-capture/100);document.getElementById('daily-number').textContent=daily;document.getElementById('capture-number').textContent=capture+'%';document.getElementById('metric-before').textContent=daily;document.getElementById('metric-after').textContent=Number.isInteger(after)?after:after.toFixed(1);document.getElementById('metric-reduction').textContent=capture+'%';document.getElementById('metric-bar-fill').style.width=capture+'%';}
+for(const id of ['daily-range','capture-range'])document.getElementById(id).addEventListener('input',renderMetrics);
+const mobileMenu=document.getElementById('mobile-menu'),mobileToggle=document.getElementById('mobile-menu-toggle');
+mobileToggle.addEventListener('click',()=>{const v=mobileMenu.classList.toggle('open');mobileToggle.setAttribute('aria-expanded',String(v))});
+mobileMenu.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{mobileMenu.classList.remove('open');mobileToggle.setAttribute('aria-expanded','false')}));
+window.addEventListener('scroll',()=>{const el=document.documentElement;const max=el.scrollHeight-el.clientHeight;document.getElementById('reading-progress').style.width=(max>0?window.scrollY/max*100:0)+'%';},{passive:true});
+renderPhone();renderDecisions();renderRequirements();renderMetrics();
+
+</script>
+</body>
+</html>
