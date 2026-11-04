@@ -131,14 +131,6 @@ function WhereWorked() {
   return (
     <Block title="Where I've worked" icon={<Glyph name="briefcase" size={22} strokeWidth={1.9} />} className={white}>
       <ol className="relative mt-4 space-y-4 pl-1 lg:grid lg:grid-cols-2 lg:gap-x-4 lg:gap-y-4 lg:space-y-0 xl:grid-cols-3">
-        <motion.span
-          aria-hidden
-          className="absolute top-3 bottom-3 left-[11px] w-[2px] origin-top rounded-full bg-peach lg:hidden"
-          initial={false}
-          whileInView={{ scaleY: 1 }}
-          viewport={seen}
-          transition={{ duration: 0.28573, delay: 0.12501, ease: "easeInOut" }}
-        />
         {aboutPage.worked.map((w, i) => (
           <motion.li
             key={w.name}
@@ -148,6 +140,12 @@ function WhereWorked() {
             viewport={seen}
             transition={{ duration: 0.17858, delay: 0.14285 + i * 0.11, ease: easeRise }}
           >
+            {i < aboutPage.worked.length - 1 && (
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute top-[15px] -bottom-[31px] left-[10px] w-[2px] bg-peach lg:hidden"
+              />
+            )}
             <motion.span
               className="relative mt-1 grid h-[22px] w-[22px] shrink-0 place-items-center rounded-full"
               initial={false}
